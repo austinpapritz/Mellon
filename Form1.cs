@@ -64,5 +64,18 @@ namespace WinFormsApp1
                 cmbWebsites.Items.Add(credential.Website);
             }
         }
+
+        private void cmbWebsites_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedWebsite = cmbWebsites.SelectedItem.ToString();
+
+            Credential selectedCredential = _credentials.Find(credential => credential.Website == selectedWebsite);
+
+            if (selectedCredential != null)
+            {
+                lblUsernameDisplay.Text = $"Username: {selectedCredential.Username}";
+                lblPasswordDisplay.Text = $"Password: {selectedCredential.Password}";
+            }
+        }
     }
 }

@@ -36,6 +36,9 @@
             password = new Label();
             button1 = new Button();
             cmbWebsites = new ComboBox();
+            label1 = new Label();
+            lblUsernameDisplay = new Label();
+            lblPasswordDisplay = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -105,12 +108,41 @@
             cmbWebsites.Name = "cmbWebsites";
             cmbWebsites.Size = new Size(246, 23);
             cmbWebsites.TabIndex = 7;
+            cmbWebsites.SelectedIndexChanged += cmbWebsites_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(382, 95);
+            label1.Name = "label1";
+            label1.Size = new Size(60, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Pick a Site";
+            // 
+            // lblUsernameDisplay
+            // 
+            lblUsernameDisplay.AutoSize = true;
+            lblUsernameDisplay.Location = new Point(382, 177);
+            lblUsernameDisplay.Name = "lblUsernameDisplay";
+            lblUsernameDisplay.Size = new Size(0, 15);
+            lblUsernameDisplay.TabIndex = 9;
+            // 
+            // lblPasswordDisplay
+            // 
+            lblPasswordDisplay.AutoSize = true;
+            lblPasswordDisplay.Location = new Point(382, 242);
+            lblPasswordDisplay.Name = "lblPasswordDisplay";
+            lblPasswordDisplay.Size = new Size(0, 15);
+            lblPasswordDisplay.TabIndex = 10;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(670, 410);
+            Controls.Add(lblPasswordDisplay);
+            Controls.Add(lblUsernameDisplay);
+            Controls.Add(label1);
             Controls.Add(cmbWebsites);
             Controls.Add(button1);
             Controls.Add(password);
@@ -135,5 +167,8 @@
         private Label password;
         private Button button1;
         private ComboBox cmbWebsites;
+        private Label label1;
+        private Label lblUsernameDisplay;
+        private Label lblPasswordDisplay;
     }
 }
