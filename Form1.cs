@@ -15,15 +15,6 @@ namespace WinFormsApp1
             _credentials = new List<Credential>();
         }
 
-        private void website_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {

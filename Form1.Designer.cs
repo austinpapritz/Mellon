@@ -47,7 +47,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(246, 23);
             textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -71,7 +70,7 @@
             website.Size = new Size(47, 15);
             website.TabIndex = 3;
             website.Text = "website";
-            website.Click += website_Click;
+
             // 
             // username
             // 
