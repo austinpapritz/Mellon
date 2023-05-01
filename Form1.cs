@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-   
+
     public partial class Form1 : Form
     {
         private List<Credential> _credentials;
@@ -43,6 +43,7 @@ namespace WinFormsApp1
                 };
 
                 _credentials.Add(credential);
+                UpdateWebsiteDropdown();
 
                 // Clear the TextBoxes for the next entry
                 textBox1.Clear();
@@ -52,6 +53,15 @@ namespace WinFormsApp1
             else
             {
                 MessageBox.Show("Please fill in all the fields.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void UpdateWebsiteDropdown()
+        {
+            cmbWebsites.Items.Clear();
+            foreach (Credential credential in _credentials)
+            {
+                cmbWebsites.Items.Add(credential.Website);
             }
         }
     }

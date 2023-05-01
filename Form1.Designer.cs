@@ -35,6 +35,7 @@
             username = new Label();
             password = new Label();
             button1 = new Button();
+            cmbWebsites = new ComboBox();
             SuspendLayout();
             // 
             // textBox1
@@ -90,18 +91,27 @@
             // button1
             // 
             button1.Location = new Point(35, 282);
-            button1.Name = "btnSave";
+            button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 6;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btnSave_Click;
             // 
+            // cmbWebsites
+            // 
+            cmbWebsites.FormattingEnabled = true;
+            cmbWebsites.Location = new Point(382, 114);
+            cmbWebsites.Name = "cmbWebsites";
+            cmbWebsites.Size = new Size(246, 23);
+            cmbWebsites.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(670, 410);
+            Controls.Add(cmbWebsites);
             Controls.Add(button1);
             Controls.Add(password);
             Controls.Add(username);
@@ -124,5 +134,6 @@
         private Label username;
         private Label password;
         private Button button1;
+        private ComboBox cmbWebsites;
     }
 }
