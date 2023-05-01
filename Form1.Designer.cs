@@ -61,29 +61,29 @@
             // 
             website.AutoSize = true;
             website.Location = new Point(34, 94);
-            website.Name = "label1";
+            website.Name = "website";
             website.Size = new Size(38, 15);
             website.TabIndex = 3;
-            website.Text = "label1";
+            website.Text = "website";
             website.Click += label1_Click;
             // 
             // label2
             // 
             username.AutoSize = true;
             username.Location = new Point(34, 158);
-            username.Name = "label2";
+            username.Name = "username";
             username.Size = new Size(38, 15);
             username.TabIndex = 4;
-            username.Text = "label2";
+            username.Text = "username";
             // 
             // label3
             // 
             password.AutoSize = true;
             password.Location = new Point(34, 224);
-            password.Name = "label3";
+            password.Name = "password";
             password.Size = new Size(38, 15);
             password.TabIndex = 5;
-            password.Text = "label3";
+            password.Text = "password";
             // 
             // Form1
             // 
