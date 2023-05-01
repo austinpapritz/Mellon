@@ -34,6 +34,7 @@
             website = new Label();
             username = new Label();
             password = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -42,6 +43,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(246, 23);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -57,39 +59,49 @@
             textBox3.Size = new Size(246, 23);
             textBox3.TabIndex = 2;
             // 
-            // label1
+            // website
             // 
             website.AutoSize = true;
             website.Location = new Point(34, 94);
             website.Name = "website";
-            website.Size = new Size(38, 15);
+            website.Size = new Size(47, 15);
             website.TabIndex = 3;
             website.Text = "website";
-            website.Click += label1_Click;
+            website.Click += website_Click;
             // 
-            // label2
+            // username
             // 
             username.AutoSize = true;
             username.Location = new Point(34, 158);
             username.Name = "username";
-            username.Size = new Size(38, 15);
+            username.Size = new Size(59, 15);
             username.TabIndex = 4;
             username.Text = "username";
             // 
-            // label3
+            // password
             // 
             password.AutoSize = true;
             password.Location = new Point(34, 224);
             password.Name = "password";
-            password.Size = new Size(38, 15);
+            password.Size = new Size(57, 15);
             password.TabIndex = 5;
             password.Text = "password";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(35, 282);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 6;
+            button1.Text = "Save";
+            button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(670, 410);
+            Controls.Add(button1);
             Controls.Add(password);
             Controls.Add(username);
             Controls.Add(website);
@@ -110,5 +122,6 @@
         private Label website;
         private Label username;
         private Label password;
+        private Button button1;
     }
 }
