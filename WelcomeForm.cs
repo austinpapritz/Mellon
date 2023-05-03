@@ -19,7 +19,9 @@ namespace WinFormsApp1
 
         private void createMasterPasswordButton_Click(object sender, EventArgs e)
         {
-            // Logic for creating a new master password
+            CreateMasterPasswordForm createMasterPasswordForm = new CreateMasterPasswordForm();
+            createMasterPasswordForm.Show();
+            this.Hide();
         }
 
         private void newMasterPasswordButton_Click(object sender, EventArgs e)
