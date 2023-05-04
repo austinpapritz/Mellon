@@ -28,6 +28,7 @@
             nicknameTextBox = new TextBox();
             masterPasswordTextBox = new TextBox();
             confirmPasswordTextBox = new TextBox();
+            saveMasterPasswordButton = new Button();
             SuspendLayout();
             // 
             // nicknameLabel
@@ -78,6 +79,16 @@
             confirmPasswordTextBox.Size = new Size(200, 23);
             confirmPasswordTextBox.TabIndex = 5;
             // 
+            // saveMasterPasswordButton
+            // 
+            saveMasterPasswordButton.Location = new Point(150, 177);
+            saveMasterPasswordButton.Name = "saveMasterPasswordButton";
+            saveMasterPasswordButton.Size = new Size(200, 23);
+            saveMasterPasswordButton.TabIndex = 6;
+            saveMasterPasswordButton.Text = "Save Master Password";
+            saveMasterPasswordButton.UseVisualStyleBackColor = true;
+            saveMasterPasswordButton.Click += SaveMasterPasswordButton_Click;
+            // 
             // CreateMasterPasswordForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -89,6 +100,7 @@
             Controls.Add(confirmPasswordLabel);
             Controls.Add(masterPasswordLabel);
             Controls.Add(nicknameLabel);
+            Controls.Add(saveMasterPasswordButton);
             Name = "CreateMasterPasswordForm";
             Text = "Create Master Password";
             ResumeLayout(false);
@@ -101,6 +113,7 @@
         private TextBox nicknameTextBox;
         private TextBox masterPasswordTextBox;
         private TextBox confirmPasswordTextBox;
-
+        private Button saveMasterPasswordButton;
     }
+
 }
