@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace WinFormsApp1
 {
@@ -25,9 +26,39 @@ namespace WinFormsApp1
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            // Check the user's credentials and log in
-            // TODO: Implement the credential checking logic
+            string nickname = nicknameTextBox.Text;
+            string masterPassword = masterPasswordTextBox.Text;
+
+            byte[] storedEncryptedMasterPassword = GetStoredEncryptedMasterPassword(nickname);
+            if (storedEncryptedMasterPassword == null)
+            {
+                MessageBox.Show("Invalid nickname.");
+                return;
+            }
+
+            byte[] providedEncryptedMasterPassword = PasswordHelper.EncryptMasterPassword(masterPassword);
+
+
+            if (providedEncryptedMasterPassword.SequenceEqual(storedEncryptedMasterPassword))
+            {
+                MessageBox.Show("Login successful!");
+                // Navigate to Form1 or perform other actions upon successful login
+            }
+            else
+            {
+                MessageBox.Show("Invalid master password.");
+            }
         }
+
+
+        private byte[] GetStoredEncryptedMasterPassword(string nickname)
+        {
+            // Retrieve the stored encrypted master password for the provided nickname from the database
+            // This is just a placeholder, you'll need to replace it with the actual retrieval code when you implement the database functionality
+            byte[] storedEncryptedMasterPassword = null;
+            return storedEncryptedMasterPassword;
+        }
+
 
     }
 }

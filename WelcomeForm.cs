@@ -21,7 +21,6 @@ namespace WinFormsApp1
         {
             SignUpForm createMasterPasswordForm = new SignUpForm();
             createMasterPasswordForm.Show();
-            this.Hide();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
