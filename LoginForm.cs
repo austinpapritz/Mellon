@@ -10,26 +10,24 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class WelcomeForm : Form
+    public partial class LoginForm : Form
     {
-        public WelcomeForm()
+        public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void SignupButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
-            SignUpForm createMasterPasswordForm = new SignUpForm();
-            createMasterPasswordForm.Show();
-            this.Hide();
+            // Close the LoginForm and go back to the WelcomeForm
+            this.Close();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
+            // Check the user's credentials and log in
+            // TODO: Implement the credential checking logic
         }
 
     }
-
 }

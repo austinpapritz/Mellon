@@ -40,7 +40,7 @@
             signUpButton.TabIndex = 0;
             signUpButton.Text = "Sign Up";
             signUpButton.UseVisualStyleBackColor = true;
-            signUpButton.Click += createMasterPasswordButton_Click;
+            signUpButton.Click += SignupButton_Click;
             // 
             // logInButton
             // 
@@ -50,7 +50,7 @@
             logInButton.TabIndex = 1;
             logInButton.Text = "Log In";
             logInButton.UseVisualStyleBackColor = true;
-            logInButton.Click += newMasterPasswordButton_Click;
+            logInButton.Click += LoginButton_Click;
             // 
             // WelcomeForm
             // 
