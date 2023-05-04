@@ -15,9 +15,9 @@ using Konscious.Security.Cryptography;
 
 namespace WinFormsApp1
 {
-    public partial class CreateMasterPasswordForm : Form
+    public partial class SignUpForm : Form
     {
-        public CreateMasterPasswordForm()
+        public SignUpForm()
         {
             InitializeComponent();
             SetUpDatabase();

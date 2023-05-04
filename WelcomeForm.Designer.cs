@@ -28,47 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            createMasterPasswordButton = new Button();
-            newMasterPasswordButton = new Button();
+            signUpButton = new Button();
+            logInButton = new Button();
             SuspendLayout();
             // 
-            // createMasterPasswordButton
+            // signUpButton
             // 
-            createMasterPasswordButton.Location = new Point(50, 50);
-            createMasterPasswordButton.Name = "createMasterPasswordButton";
-            createMasterPasswordButton.Size = new Size(200, 100);
-            createMasterPasswordButton.TabIndex = 0;
-            createMasterPasswordButton.Text = "Create Master Password";
-            createMasterPasswordButton.UseVisualStyleBackColor = true;
-            createMasterPasswordButton.Click += createMasterPasswordButton_Click;
+            signUpButton.Location = new Point(50, 50);
+            signUpButton.Name = "signUpButton";
+            signUpButton.Size = new Size(200, 100);
+            signUpButton.TabIndex = 0;
+            signUpButton.Text = "Sign Up";
+            signUpButton.UseVisualStyleBackColor = true;
+            signUpButton.Click += createMasterPasswordButton_Click;
             // 
-            // newMasterPasswordButton
+            // logInButton
             // 
-            newMasterPasswordButton.Location = new Point(50, 200);
-            newMasterPasswordButton.Name = "newMasterPasswordButton";
-            newMasterPasswordButton.Size = new Size(200, 100);
-            newMasterPasswordButton.TabIndex = 1;
-            newMasterPasswordButton.Text = "New Master Password";
-            newMasterPasswordButton.UseVisualStyleBackColor = true;
-            newMasterPasswordButton.Click += newMasterPasswordButton_Click;
+            logInButton.Location = new Point(50, 200);
+            logInButton.Name = "logInButton";
+            logInButton.Size = new Size(200, 100);
+            logInButton.TabIndex = 1;
+            logInButton.Text = "Log In";
+            logInButton.UseVisualStyleBackColor = true;
+            logInButton.Click += newMasterPasswordButton_Click;
             // 
             // WelcomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(300, 350);
-            Controls.Add(newMasterPasswordButton);
-            Controls.Add(createMasterPasswordButton);
+            Controls.Add(logInButton);
+            Controls.Add(signUpButton);
             Name = "WelcomeForm";
             Text = "Welcome";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Button createMasterPasswordButton;
-        private Button newMasterPasswordButton;
+        private Button signUpButton;
+        private Button logInButton;
 
 
 

@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class CreateMasterPasswordForm
+    partial class SignUpForm
     {
         /// <summary>
         /// Required designer variable.
