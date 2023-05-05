@@ -58,7 +58,22 @@ namespace WinFormsApp1
                     command.Parameters.AddWithValue("@nickname", nickname);
                     command.Parameters.AddWithValue("@encryptedMasterPassword", encryptedMasterPassword);
 
-                    command.ExecuteNonQuery();
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        if (ex.ResultCode == SQLiteErrorCode.Constraint)
+                        {
+                            MessageBox.Show("This nickname is already taken. Please choose a different one.");
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                   
                 }
             }
         }

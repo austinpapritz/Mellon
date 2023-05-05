@@ -16,6 +16,7 @@ namespace WinFormsApp1
         public LoginForm()
         {
             InitializeComponent();
+            DatabaseHelper.SetUpDatabase();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace WinFormsApp1
             string masterPassword = masterPasswordTextBox.Text;
 
             byte[] storedEncryptedMasterPassword = DatabaseHelper.GetStoredEncryptedMasterPassword(nickname);
+
             if (storedEncryptedMasterPassword == null)
             {
                 MessageBox.Show("Invalid nickname.");
@@ -42,7 +44,7 @@ namespace WinFormsApp1
             if (providedEncryptedMasterPassword.SequenceEqual(storedEncryptedMasterPassword))
             {
                 MessageBox.Show("Login successful!");
-                // Navigate to Form1 or perform other actions upon successful login
+                // Navigate to NewPassword or perform other actions upon successful login
             }
             else
             {
