@@ -43,17 +43,17 @@ namespace WinFormsApp1
 
         private void StoreUser(string nickname, string masterPassword)
         {
-            (byte[] encryptedMasterPassword, byte[] salt) = PasswordHelper.EncryptMasterPassword(masterPassword);
+            (byte[] hashedMasterPassword, byte[] salt) = PasswordHelper.HashMasterPassword(masterPassword);
 
             using (var command = new SQLiteCommand(DatabaseManager.Connection))
             {
                 command.CommandText = @"
-INSERT INTO Users (Nickname, Salt, EncryptedMasterPassword)
-VALUES (@nickname, @salt, @encryptedMasterPassword);";
+INSERT INTO Users (Nickname, Salt, HashedMasterPassword)
+VALUES (@nickname, @salt, @hashedMasterPassword);";
 
                 command.Parameters.AddWithValue("@nickname", nickname);
                 command.Parameters.AddWithValue("@salt", salt);
-                command.Parameters.AddWithValue("@encryptedMasterPassword", encryptedMasterPassword);
+                command.Parameters.AddWithValue("@encryptedMasterPassword", hashedMasterPassword);
 
                 try
                 {

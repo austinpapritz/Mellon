@@ -19,7 +19,7 @@ namespace WinFormsApp1
             }
         }
 
-        public static (byte[] encryptedMasterPassword, byte[] salt) GetStoredEncryptedMasterPassword(string nickname)
+        public static (byte[] hashedMasterPassword, byte[] salt) GetStoredHashedMasterPassword(string nickname)
         {
             using (var connection = new SQLiteConnection("Data Source=users.db"))
             {
@@ -34,14 +34,14 @@ namespace WinFormsApp1
                     {
                         if (reader.Read())
                         {
-                            byte[] encryptedMasterPasswordWithSalt = (byte[])reader["EncryptedMasterPassword"];
+                            byte[] hashedMasterPasswordWithSalt = (byte[])reader["HashedMasterPassword"];
                             byte[] salt = new byte[16];
-                            byte[] encryptedMasterPassword = new byte[encryptedMasterPasswordWithSalt.Length - 16];
+                            byte[] hashedMasterPassword = new byte[hashedMasterPasswordWithSalt.Length - 16];
 
-                            Buffer.BlockCopy(encryptedMasterPasswordWithSalt, 0, salt, 0, 16);
-                            Buffer.BlockCopy(encryptedMasterPasswordWithSalt, 16, encryptedMasterPassword, 0, encryptedMasterPassword.Length);
+                            Buffer.BlockCopy(hashedMasterPasswordWithSalt, 0, salt, 0, 16);
+                            Buffer.BlockCopy(hashedMasterPasswordWithSalt, 16, hashedMasterPassword, 0, hashedMasterPassword.Length);
 
-                            return (encryptedMasterPassword, salt);
+                            return (hashedMasterPassword, salt);
                         }
                         else
                         {

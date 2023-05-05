@@ -30,17 +30,17 @@ namespace WinFormsApp1
             string nickname = nicknameTextBox.Text;
             string masterPassword = masterPasswordTextBox.Text;
 
-            (byte[] storedEncryptedMasterPassword, byte[] storedSalt) = DatabaseHelper.GetStoredEncryptedMasterPassword(nickname);
+            (byte[] storedHashedMasterPassword, byte[] storedSalt) = DatabaseHelper.GetStoredHashedMasterPassword(nickname);
 
-            if (storedEncryptedMasterPassword == null)
+            if (storedHashedMasterPassword == null)
             {
                 MessageBox.Show("Invalid nickname.");
                 return;
             }
 
-            (byte[] providedEncryptedMasterPassword, _) = PasswordHelper.EncryptMasterPassword(masterPassword, storedSalt);
+            (byte[] providedHashedMasterPassword, _) = PasswordHelper.HashMasterPassword(masterPassword, storedSalt);
 
-            if (providedEncryptedMasterPassword.SequenceEqual(storedEncryptedMasterPassword))
+            if (providedHashedMasterPassword.SequenceEqual(storedHashedMasterPassword))
             {
                 MessageBox.Show("Login successful!");
                 // Navigate to NewPassword or perform other actions upon successful login
