@@ -19,7 +19,7 @@ namespace WinFormsApp1
 
         private void SignupButton_Click(object sender, EventArgs e)
         {
-            SignUpForm createMasterPasswordForm = new SignUpForm();
+            SignupForm createMasterPasswordForm = new SignupForm();
             createMasterPasswordForm.Show();
         }
 

@@ -29,7 +29,7 @@ namespace WinFormsApp1
             string nickname = nicknameTextBox.Text;
             string masterPassword = masterPasswordTextBox.Text;
 
-            byte[] storedEncryptedMasterPassword = GetStoredEncryptedMasterPassword(nickname);
+            byte[] storedEncryptedMasterPassword = DatabaseHelper.GetStoredEncryptedMasterPassword(nickname);
             if (storedEncryptedMasterPassword == null)
             {
                 MessageBox.Show("Invalid nickname.");
@@ -49,16 +49,5 @@ namespace WinFormsApp1
                 MessageBox.Show("Invalid master password.");
             }
         }
-
-
-        private byte[] GetStoredEncryptedMasterPassword(string nickname)
-        {
-            // Retrieve the stored encrypted master password for the provided nickname from the database
-            // This is just a placeholder, you'll need to replace it with the actual retrieval code when you implement the database functionality
-            byte[] storedEncryptedMasterPassword = null;
-            return storedEncryptedMasterPassword;
-        }
-
-
     }
 }

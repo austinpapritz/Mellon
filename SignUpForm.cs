@@ -15,12 +15,12 @@ using Konscious.Security.Cryptography;
 
 namespace WinFormsApp1
 {
-    public partial class SignUpForm : Form
+    public partial class SignupForm : Form
     {
-        public SignUpForm()
+        public SignupForm()
         {
             InitializeComponent();
-            SetUpDatabase();
+            DatabaseHelper.SetUpDatabase();
         }
 
         private void SaveMasterPasswordButton_Click(object sender, EventArgs e)
@@ -37,24 +37,6 @@ namespace WinFormsApp1
             else
             {
                 MessageBox.Show("Passwords do not match. Please re-enter your password.");
-            }
-        }
-        private void SetUpDatabase()
-        {
-            using (var connection = new SQLiteConnection("Data Source=users.db"))
-            {
-                connection.Open();
-
-                using (var command = new SQLiteCommand(connection))
-                {
-                    command.CommandText = @"
-            CREATE TABLE IF NOT EXISTS Users (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Nickname TEXT NOT NULL UNIQUE,
-                EncryptedMasterPassword BLOB NOT NULL
-            );";
-                    command.ExecuteNonQuery();
-                }
             }
         }
 

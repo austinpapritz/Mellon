@@ -7,11 +7,11 @@ using System.Windows.Forms;
 namespace WinFormsApp1
 {
 
-    public partial class Form1 : Form
+    public partial class NewPassword : Form
     {
         private List<Credential> _credentials;
 
-        public Form1()
+        public NewPassword()
         {
             InitializeComponent();
             _credentials = new List<Credential>();
