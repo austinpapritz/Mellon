@@ -43,40 +43,37 @@ namespace WinFormsApp1
 
         private void StoreUser(string nickname, string masterPassword)
         {
-            byte[] encryptedMasterPassword = PasswordHelper.EncryptMasterPassword(masterPassword);
+            (byte[] encryptedMasterPassword, byte[] salt) = PasswordHelper.EncryptMasterPassword(masterPassword);
 
-            using (var connection = new SQLiteConnection("Data Source=users.db"))
+            using (var command = new SQLiteCommand(DatabaseManager.Connection))
             {
-                connection.Open();
+                command.CommandText = @"
+INSERT INTO Users (Nickname, Salt, EncryptedMasterPassword)
+VALUES (@nickname, @salt, @encryptedMasterPassword);";
 
-                using (var command = new SQLiteCommand(connection))
+                command.Parameters.AddWithValue("@nickname", nickname);
+                command.Parameters.AddWithValue("@salt", salt);
+                command.Parameters.AddWithValue("@encryptedMasterPassword", encryptedMasterPassword);
+
+                try
                 {
-                    command.CommandText = @"
-            INSERT INTO Users (Nickname, EncryptedMasterPassword)
-            VALUES (@nickname, @encryptedMasterPassword);";
-
-                    command.Parameters.AddWithValue("@nickname", nickname);
-                    command.Parameters.AddWithValue("@encryptedMasterPassword", encryptedMasterPassword);
-
-                    try
+                    command.ExecuteNonQuery();
+                }
+                catch (SQLiteException ex)
+                {
+                    if (ex.ResultCode == SQLiteErrorCode.Constraint)
                     {
-                        command.ExecuteNonQuery();
+                        MessageBox.Show("This nickname is already taken. Please choose a different one.");
                     }
-                    catch (SQLiteException ex)
+                    else
                     {
-                        if (ex.ResultCode == SQLiteErrorCode.Constraint)
-                        {
-                            MessageBox.Show("This nickname is already taken. Please choose a different one.");
-                        }
-                        else
-                        {
-                            throw;
-                        }
+                        throw;
                     }
-                   
                 }
             }
         }
+
+
 
 
 

@@ -30,7 +30,7 @@ namespace WinFormsApp1
             string nickname = nicknameTextBox.Text;
             string masterPassword = masterPasswordTextBox.Text;
 
-            byte[] storedEncryptedMasterPassword = DatabaseHelper.GetStoredEncryptedMasterPassword(nickname);
+            (byte[] storedEncryptedMasterPassword, byte[] storedSalt) = DatabaseHelper.GetStoredEncryptedMasterPassword(nickname);
 
             if (storedEncryptedMasterPassword == null)
             {
@@ -38,8 +38,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            byte[] providedEncryptedMasterPassword = PasswordHelper.EncryptMasterPassword(masterPassword);
-
+            (byte[] providedEncryptedMasterPassword, _) = PasswordHelper.EncryptMasterPassword(masterPassword, storedSalt);
 
             if (providedEncryptedMasterPassword.SequenceEqual(storedEncryptedMasterPassword))
             {
@@ -51,5 +50,6 @@ namespace WinFormsApp1
                 MessageBox.Show("Invalid master password.");
             }
         }
+
     }
 }
