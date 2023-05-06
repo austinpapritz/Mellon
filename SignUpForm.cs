@@ -53,7 +53,7 @@ VALUES (@nickname, @salt, @hashedMasterPassword);";
 
                 command.Parameters.AddWithValue("@nickname", nickname);
                 command.Parameters.AddWithValue("@salt", salt);
-                command.Parameters.AddWithValue("@encryptedMasterPassword", hashedMasterPassword);
+                command.Parameters.AddWithValue("@hashedMasterPassword", hashedMasterPassword);
 
                 try
                 {
@@ -72,11 +72,5 @@ VALUES (@nickname, @salt, @hashedMasterPassword);";
                 }
             }
         }
-
-
-
-
-
-
     }
 }

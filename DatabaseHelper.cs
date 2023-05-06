@@ -13,7 +13,7 @@ namespace WinFormsApp1
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
             Nickname TEXT NOT NULL UNIQUE,
             Salt BLOB NOT NULL,
-            EncryptedMasterPassword BLOB NOT NULL
+            HashedMasterPassword BLOB NOT NULL
         );";
                 command.ExecuteNonQuery();
             }
@@ -27,19 +27,15 @@ namespace WinFormsApp1
 
                 using (var command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = "SELECT EncryptedMasterPassword FROM Users WHERE Nickname = @Nickname";
+                    command.CommandText = "SELECT HashedMasterPassword, Salt FROM Users WHERE Nickname = @Nickname";
                     command.Parameters.AddWithValue("@Nickname", nickname);
 
                     using (var reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            byte[] hashedMasterPasswordWithSalt = (byte[])reader["HashedMasterPassword"];
-                            byte[] salt = new byte[16];
-                            byte[] hashedMasterPassword = new byte[hashedMasterPasswordWithSalt.Length - 16];
-
-                            Buffer.BlockCopy(hashedMasterPasswordWithSalt, 0, salt, 0, 16);
-                            Buffer.BlockCopy(hashedMasterPasswordWithSalt, 16, hashedMasterPassword, 0, hashedMasterPassword.Length);
+                            byte[] hashedMasterPassword = (byte[])reader["HashedMasterPassword"];
+                            byte[] salt = (byte[])reader["Salt"];
 
                             return (hashedMasterPassword, salt);
                         }

@@ -19,14 +19,13 @@ namespace WinFormsApp1
                 salt = new byte[16];
                 RandomNumberGenerator.Fill(salt);
             }
-            else
-            {
-                hasher.Salt = salt;
-            }
+
+            hasher.Salt = salt; 
 
             byte[] hash = hasher.GetBytes(32);
 
             return (hash, salt);
         }
+
     }
 }
