@@ -17,55 +17,71 @@ namespace WinFormsApp1
 
         private void InitializeComponent()
         {
-            this.websiteComboBox = new System.Windows.Forms.ComboBox();
-            this.usernameLabel = new System.Windows.Forms.Label();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            websiteComboBox = new ComboBox();
+            usernameLabel = new Label();
+            passwordLabel = new Label();
+            newPasswordButton = new Button();
+            SuspendLayout();
             // 
             // websiteComboBox
             // 
-            this.websiteComboBox.FormattingEnabled = true;
-            this.websiteComboBox.Location = new System.Drawing.Point(161, 49);
-            this.websiteComboBox.Name = "websiteComboBox";
-            this.websiteComboBox.Size = new System.Drawing.Size(121, 21);
-            this.websiteComboBox.TabIndex = 0;
-            this.websiteComboBox.SelectedIndexChanged += new System.EventHandler(this.websiteComboBox_SelectedIndexChanged);
+            websiteComboBox.FormattingEnabled = true;
+            websiteComboBox.Location = new Point(188, 57);
+            websiteComboBox.Margin = new Padding(4, 3, 4, 3);
+            websiteComboBox.Name = "websiteComboBox";
+            websiteComboBox.Size = new Size(140, 23);
+            websiteComboBox.TabIndex = 0;
+            websiteComboBox.SelectedIndexChanged += websiteComboBox_SelectedIndexChanged;
             // 
             // usernameLabel
             // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(158, 83);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(55, 13);
-            this.usernameLabel.TabIndex = 1;
-            this.usernameLabel.Text = "Username:";
+            usernameLabel.AutoSize = true;
+            usernameLabel.Location = new Point(184, 96);
+            usernameLabel.Margin = new Padding(4, 0, 4, 0);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(63, 15);
+            usernameLabel.TabIndex = 1;
+            usernameLabel.Text = "Username:";
             // 
             // passwordLabel
             // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(158, 108);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(53, 13);
-            this.passwordLabel.TabIndex = 2;
-            this.passwordLabel.Text = "Password:";
+            passwordLabel.AutoSize = true;
+            passwordLabel.Location = new Point(184, 125);
+            passwordLabel.Margin = new Padding(4, 0, 4, 0);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(60, 15);
+            passwordLabel.TabIndex = 2;
+            passwordLabel.Text = "Password:";
+            // 
+            // newPasswordButton
+            // 
+            newPasswordButton.Location = new Point(17, 14);
+            newPasswordButton.Name = "newPasswordButton";
+            newPasswordButton.Size = new Size(93, 23);
+            newPasswordButton.TabIndex = 3;
+            newPasswordButton.Text = "New Password";
+            newPasswordButton.UseVisualStyleBackColor = true;
+            newPasswordButton.Click += newPasswordButton_Click;
             // 
             // SavedCredentialsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.usernameLabel);
-            this.Controls.Add(this.websiteComboBox);
-            this.Name = "SavedCredentialsForm";
-            this.Text = "SavedCredentialsForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(331, 301);
+            Controls.Add(newPasswordButton);
+            Controls.Add(passwordLabel);
+            Controls.Add(usernameLabel);
+            Controls.Add(websiteComboBox);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "SavedCredentialsForm";
+            Text = "SavedCredentialsForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.ComboBox websiteComboBox;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
+        private Button newPasswordButton;
     }
 }

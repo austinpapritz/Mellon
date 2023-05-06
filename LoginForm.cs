@@ -47,6 +47,7 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Login successful!");
                 // Navigate to NewPassword or perform other actions upon successful login
+                _userId = DatabaseHelper.GetUserId(nickname);
                 SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(_userId);
                 savedCredentialsForm.Show();
             }

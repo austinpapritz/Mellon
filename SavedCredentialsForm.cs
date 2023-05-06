@@ -44,6 +44,18 @@ namespace WinFormsApp1
                 passwordLabel.Text = _savedCredentials[selectedIndex].password;
             }
         }
+
+        private void newPasswordButton_Click(object sender, EventArgs e)
+        {
+            using (NewPassword newPasswordForm = new NewPassword(_userId))
+            {
+                newPasswordForm.ShowDialog();
+
+                // Reload the saved credentials after adding new ones
+                LoadSavedCredentials();
+            }
+        }
+
     }
 
 

@@ -1,9 +1,11 @@
-﻿using System.Data.SQLite;
+﻿using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace WinFormsApp1
 {
     public static class DatabaseHelper
     {
+
         public static void SetUpDatabase()
         {
             using (var command = new SQLiteCommand(DatabaseManager.Connection))
@@ -107,5 +109,30 @@ namespace WinFormsApp1
 
             return savedCredentials;
         }
+
+        public static int GetUserId(string nickname)
+        {
+            using (var connection = new SQLiteConnection("Data Source=users.db"))
+            {
+                connection.Open();
+
+                using (var command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "SELECT Id FROM Users WHERE Nickname = @Nickname";
+                    command.Parameters.AddWithValue("@Nickname", nickname);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+
+            return 0;
+        }
+
     }
 }
