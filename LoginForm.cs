@@ -44,6 +44,8 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Login successful!");
                 // Navigate to NewPassword or perform other actions upon successful login
+                SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(nickname);
+                savedCredentialsForm.Show();
             }
             else
             {

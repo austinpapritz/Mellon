@@ -47,6 +47,36 @@ namespace WinFormsApp1
                 }
             }
         }
+        public static List<(string website, string username, string password)> GetSavedCredentials(string nickname)
+        {
+            List<(string website, string username, string password)> savedCredentials = new List<(string website, string username, string password)>();
+
+            using (var connection = new SQLiteConnection("Data Source=users.db"))
+            {
+                connection.Open();
+
+                using (var command = new SQLiteCommand(connection))
+                {
+                    command.CommandText = "SELECT Website, Username, Password FROM SavedCredentials WHERE Nickname = @Nickname";
+                    command.Parameters.AddWithValue("@Nickname", nickname);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string website = reader["Website"].ToString();
+                            string username = reader["Username"].ToString();
+                            string password = reader["Password"].ToString();
+
+                            savedCredentials.Add((website, username, password));
+                        }
+                    }
+                }
+            }
+
+            return savedCredentials;
+        }
+
 
 
     }
