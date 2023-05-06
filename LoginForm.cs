@@ -13,6 +13,8 @@ namespace WinFormsApp1
 {
     public partial class LoginForm : Form
     {
+        private int _userId;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace WinFormsApp1
         {
             string nickname = nicknameTextBox.Text;
             string masterPassword = masterPasswordTextBox.Text;
+            
 
             (byte[] storedHashedMasterPassword, byte[] storedSalt) = DatabaseHelper.GetStoredHashedMasterPassword(nickname);
 
@@ -44,7 +47,7 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Login successful!");
                 // Navigate to NewPassword or perform other actions upon successful login
-                SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(nickname);
+                SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(_userId);
                 savedCredentialsForm.Show();
             }
             else

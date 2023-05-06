@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using WinFormsApp1;
 
 namespace WinFormsApp1
 {
-
     public partial class NewPassword : Form
+{
+    private List<Credential> _credentials;
+    private int _userId;
+
+    public NewPassword(int userId)
     {
-        private List<Credential> _credentials;
+        InitializeComponent();
+        _userId = userId;
+        _credentials = new List<Credential>();
+    }
 
-        public NewPassword()
-        {
-            InitializeComponent();
-            _credentials = new List<Credential>();
-        }
-        private void btnGeneratePW_Click(object sender, EventArgs e)
-        {
-            string password = GenerateStrongPassword(12);
-            lblGeneratePW.Text = password;
-        }
 
-        public string GenerateStrongPassword(int length)
+    public string GenerateStrongPassword(int length)
         {
             const string uppercaseChars = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
             const string lowercaseChars = "abcdefghijkmnopqrstuvwxyz";
@@ -54,6 +52,13 @@ namespace WinFormsApp1
             return new string(password);
         }
 
+        private void btnGeneratePW_Click(object sender, EventArgs e)
+        {
+            string password = GenerateStrongPassword(12);
+            lblGeneratePW.Text = password;
+        }
+
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             string website = textBox1.Text;
@@ -64,18 +69,14 @@ namespace WinFormsApp1
                 !string.IsNullOrWhiteSpace(username) &&
                 !string.IsNullOrWhiteSpace(password))
             {
-                Credential credential = new Credential
-                {
-                    Website = website,
-                    Username = username,
-                    Password = password
-                };
-
-                _credentials.Add(credential);
+                DatabaseHelper.SaveCredential(_userId, website, username, password);
 
                 // Clear the TextBoxes for the next entry
                 textBox1.Clear();
                 textBox2.Clear();
+                lblGeneratePW.Text = string.Empty;
+
+                MessageBox.Show("Credential saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

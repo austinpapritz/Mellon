@@ -14,18 +14,18 @@ namespace WinFormsApp1
     {
 
         private List<(string website, string username, string password)> _savedCredentials;
-        private string _loggedInUserNickname;
+        private int _userId;
 
-        public SavedCredentialsForm(string loggedInUserNickname)
+        public SavedCredentialsForm(int userId)
         {
             InitializeComponent();
-            _loggedInUserNickname = loggedInUserNickname;
+            _userId = userId;
             LoadSavedCredentials();
         }
 
         private void LoadSavedCredentials()
         {
-            _savedCredentials = DatabaseHelper.GetSavedCredentials(_loggedInUserNickname);
+            _savedCredentials = DatabaseHelper.GetSavedCredentials(_userId);
 
             websiteComboBox.Items.Clear();
             foreach (var credential in _savedCredentials)
