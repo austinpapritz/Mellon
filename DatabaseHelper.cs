@@ -59,6 +59,9 @@ namespace WinFormsApp1
         }
         public static void SaveCredential(int userId, string website, string username, string password)
         {
+            string encryptedUsername = EncryptionHelper.EncryptString(username);
+            string encryptedPassword = EncryptionHelper.EncryptString(password);
+
             using (var connection = new SQLiteConnection("Data Source=users.db"))
             {
                 connection.Open();
@@ -71,8 +74,8 @@ namespace WinFormsApp1
             ";
                     command.Parameters.AddWithValue("@UserId", userId);
                     command.Parameters.AddWithValue("@Website", website);
-                    command.Parameters.AddWithValue("@Username", username);
-                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@Username", encryptedUsername);
+                    command.Parameters.AddWithValue("@Password", encryptedPassword);
 
                     command.ExecuteNonQuery();
                 }
@@ -98,8 +101,11 @@ namespace WinFormsApp1
                         while (reader.Read())
                         {
                             string website = reader["Website"].ToString();
-                            string username = reader["Username"].ToString();
-                            string password = reader["Password"].ToString();
+                            string encryptedUsername = reader["Username"].ToString();
+                            string encryptedPassword = reader["Password"].ToString();
+
+                            string username = EncryptionHelper.DecryptString(encryptedUsername);
+                            string password = EncryptionHelper.DecryptString(encryptedPassword);
 
                             savedCredentials.Add((website, username, password));
                         }
