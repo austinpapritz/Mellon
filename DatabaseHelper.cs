@@ -1,5 +1,8 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WinFormsApp1
 {
@@ -57,11 +60,8 @@ namespace WinFormsApp1
                 }
             }
         }
-        public static void SaveCredential(int userId, string website, string username, string password)
+        public static void SaveCredential(int userId, string website, string username, string password, byte[] encryptionKey)
         {
-            string encryptedUsername = EncryptionHelper.EncryptString(username);
-            string encryptedPassword = EncryptionHelper.EncryptString(password);
-
             using (var connection = new SQLiteConnection("Data Source=users.db"))
             {
                 connection.Open();
@@ -69,13 +69,19 @@ namespace WinFormsApp1
                 using (var command = new SQLiteCommand(connection))
                 {
                     command.CommandText = @"
-                INSERT INTO SavedCredentials (UserId, Website, Username, Password)
-                VALUES (@UserId, @Website, @Username, @Password)
+            INSERT INTO SavedCredentials (UserId, Website, Username, Password)
+            VALUES (@UserId, @Website, @Username, @Password)
             ";
                     command.Parameters.AddWithValue("@UserId", userId);
                     command.Parameters.AddWithValue("@Website", website);
-                    command.Parameters.AddWithValue("@Username", encryptedUsername);
-                    command.Parameters.AddWithValue("@Password", encryptedPassword);
+
+                    // Encrypt the username and password using the encryptionKey
+                    string encUsername = EncryptionHelper.Encrypt(username, encryptionKey);
+                    string encPassword = EncryptionHelper.Encrypt(password, encryptionKey);
+
+
+                    command.Parameters.AddWithValue("@Username", encUsername);
+                    command.Parameters.AddWithValue("@Password", encPassword);
 
                     command.ExecuteNonQuery();
                 }
@@ -83,7 +89,8 @@ namespace WinFormsApp1
         }
 
 
-        public static List<(string website, string username, string password)> GetSavedCredentials(int userId)
+
+        public static List<(string website, string username, string password)> GetSavedCredentials(int userId, byte[] encryptionKey)
         {
             List<(string website, string username, string password)> savedCredentials = new List<(string website, string username, string password)>();
 
@@ -104,8 +111,10 @@ namespace WinFormsApp1
                             string encryptedUsername = reader["Username"].ToString();
                             string encryptedPassword = reader["Password"].ToString();
 
-                            string username = EncryptionHelper.DecryptString(encryptedUsername);
-                            string password = EncryptionHelper.DecryptString(encryptedPassword);
+                            // Decrypt the username and password using the encryptionKey
+                            string username = EncryptionHelper.Decrypt(encryptedUsername, encryptionKey);
+                            string password = EncryptionHelper.Decrypt(encryptedPassword, encryptionKey);
+                            
 
                             savedCredentials.Add((website, username, password));
                         }
@@ -115,6 +124,7 @@ namespace WinFormsApp1
 
             return savedCredentials;
         }
+
 
         public static int GetUserId(string nickname)
         {

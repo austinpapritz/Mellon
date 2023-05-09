@@ -8,19 +8,21 @@ using WinFormsApp1;
 namespace WinFormsApp1
 {
     public partial class NewPassword : Form
-{
-    private List<Credential> _credentials;
-    private int _userId;
-
-    public NewPassword(int userId)
     {
-        InitializeComponent();
-        _userId = userId;
-        _credentials = new List<Credential>();
-    }
+        private List<Credential> _credentials;
+        private int _userId;
+        private byte[] _encryptionKey;
+
+        public NewPassword(int userId, byte[] encryptionKey)
+        {
+            InitializeComponent();
+            _userId = userId;
+            _encryptionKey = encryptionKey;
+            _credentials = new List<Credential>();
+        }
 
 
-    public string GenerateStrongPassword(int length)
+        public string GenerateStrongPassword(int length)
         {
             const string uppercaseChars = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
             const string lowercaseChars = "abcdefghijkmnopqrstuvwxyz";
@@ -68,8 +70,14 @@ namespace WinFormsApp1
             if (!string.IsNullOrWhiteSpace(website) &&
                 !string.IsNullOrWhiteSpace(username) &&
                 !string.IsNullOrWhiteSpace(password))
+
+                
             {
-                DatabaseHelper.SaveCredential(_userId, website, username, password);
+                string encryptedUsername = EncryptionHelper.Encrypt(username, _encryptionKey);
+                string encryptedPassword = EncryptionHelper.Encrypt(password, _encryptionKey);
+
+                DatabaseHelper.SaveCredential(_userId, website, encryptedUsername, encryptedPassword, _encryptionKey);
+
 
                 // Clear the TextBoxes for the next entry
                 textBox1.Clear();

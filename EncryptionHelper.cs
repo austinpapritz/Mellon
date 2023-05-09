@@ -1,50 +1,59 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text;
 
 public static class EncryptionHelper
 {
-    public static byte[] Encrypt(byte[] key, byte[] data)
+    public static string Encrypt(string plaintext, byte[] key)
     {
+        byte[] plaintextBytes = Encoding.UTF8.GetBytes(plaintext);
+
         using (Aes aes = Aes.Create())
         {
             aes.Key = key;
             aes.GenerateIV();
+            aes.Mode = CipherMode.CBC;
 
-            using (MemoryStream memoryStream = new MemoryStream())
+            using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
+            using (var msEncrypt = new MemoryStream())
             {
-                memoryStream.Write(aes.IV, 0, aes.IV.Length);
+                msEncrypt.Write(aes.IV, 0, 16);
 
-                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                using (var swEncrypt = new StreamWriter(csEncrypt))
                 {
-                    cryptoStream.Write(data, 0, data.Length);
+                    swEncrypt.Write(plaintext);
                 }
 
-                return memoryStream.ToArray();
+                return Convert.ToBase64String(msEncrypt.ToArray());
             }
         }
     }
 
-    public static byte[] Decrypt(byte[] key, byte[] encryptedData)
+    public static string Decrypt(string ciphertext, byte[] key)
     {
+        byte[] ciphertextBytes = Convert.FromBase64String(ciphertext);
+
         using (Aes aes = Aes.Create())
         {
             aes.Key = key;
+            aes.Mode = CipherMode.CBC;
 
-            using (MemoryStream memoryStream = new MemoryStream(encryptedData))
+            using (var msDecrypt = new MemoryStream(ciphertextBytes))
             {
                 byte[] iv = new byte[16];
-                memoryStream.Read(iv, 0, iv.Length);
+                msDecrypt.Read(iv, 0, 16);
                 aes.IV = iv;
 
-                using (CryptoStream cryptoStream = new CryptoStream(memoryStream, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                using (var decryptor = aes.CreateDecryptor(aes.Key, aes.IV))
+                using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                using (var srDecrypt = new StreamReader(csDecrypt))
                 {
-                    byte[] decryptedData = new byte[encryptedData.Length];
-                    int bytesRead = cryptoStream.Read(decryptedData, 0, decryptedData.Length);
-
-                    return new ReadOnlySpan<byte>(decryptedData, 0, bytesRead).ToArray();
+                    return srDecrypt.ReadToEnd();
                 }
             }
         }
     }
 }
+
