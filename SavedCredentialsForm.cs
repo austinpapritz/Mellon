@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,20 +13,23 @@ namespace WinFormsApp1
 {
     public partial class SavedCredentialsForm : Form
     {
-
-        private List<(string website, string username, string password)> _savedCredentials;
+        private List<(string website, byte[] username, byte[] password)> _savedCredentials;
         private int _userId;
+        private byte[] _encryptionKey;
 
-        public SavedCredentialsForm(int userId)
+        public SavedCredentialsForm(int userId, byte[] encryptionKey)
         {
             InitializeComponent();
             _userId = userId;
+            _encryptionKey = encryptionKey;
             LoadSavedCredentials();
         }
 
         private void LoadSavedCredentials()
         {
-            _savedCredentials = DatabaseHelper.GetSavedCredentials(_userId);
+
+            _savedCredentials = DatabaseHelper.GetSavedCredentials(_userId, _encryptionKey).Select(c => (c.website, Convert.FromBase64String(c.username), Convert.FromBase64String(c.password))).ToList();
+
 
             websiteComboBox.Items.Clear();
             foreach (var credential in _savedCredentials)
@@ -40,14 +44,27 @@ namespace WinFormsApp1
 
             if (selectedIndex >= 0 && selectedIndex < _savedCredentials.Count)
             {
-                usernameLabel.Text = _savedCredentials[selectedIndex].username;
-                passwordLabel.Text = _savedCredentials[selectedIndex].password;
+                byte[] encryptedUsername = _savedCredentials[selectedIndex].username;
+                byte[] encryptedPassword = _savedCredentials[selectedIndex].password;
+
+                // Convert encrypted byte arrays to Base64 strings
+                string base64EncryptedUsername = Convert.ToBase64String(encryptedUsername);
+                string base64EncryptedPassword = Convert.ToBase64String(encryptedPassword);
+
+                string decryptedUsername = EncryptionHelper.Decrypt(base64EncryptedUsername, _encryptionKey);
+                string decryptedPassword = EncryptionHelper.Decrypt(base64EncryptedPassword, _encryptionKey);
+
+                usernameLabel.Text = decryptedUsername;
+                passwordLabel.Text = decryptedPassword;
             }
         }
 
+
+
+
         private void newPasswordButton_Click(object sender, EventArgs e)
         {
-            using (NewPassword newPasswordForm = new NewPassword(_userId))
+            using (NewPassword newPasswordForm = new NewPassword(_userId, _encryptionKey))
             {
                 newPasswordForm.ShowDialog();
 
