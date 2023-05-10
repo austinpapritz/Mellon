@@ -46,6 +46,8 @@ namespace WinFormsApp1
 
             if (providedHashedMasterPassword.SequenceEqual(storedHashedMasterPassword))
             {
+
+
                 MessageBox.Show("Login successful!");
                 // Navigate to NewPassword or perform other actions upon successful login
                 _userId = DatabaseHelper.GetUserId(nickname);

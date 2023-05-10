@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Text;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -111,10 +112,11 @@ namespace WinFormsApp1
                             string encryptedUsername = reader["Username"].ToString();
                             string encryptedPassword = reader["Password"].ToString();
 
+
                             // Decrypt the username and password using the encryptionKey
                             string username = EncryptionHelper.Decrypt(encryptedUsername, encryptionKey);
                             string password = EncryptionHelper.Decrypt(encryptedPassword, encryptionKey);
-                            
+
 
                             savedCredentials.Add((website, username, password));
                         }

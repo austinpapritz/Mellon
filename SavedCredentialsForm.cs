@@ -28,7 +28,7 @@ namespace WinFormsApp1
         private void LoadSavedCredentials()
         {
 
-            _savedCredentials = DatabaseHelper.GetSavedCredentials(_userId, _encryptionKey).Select(c => (c.website, Encoding.UTF8.GetBytes(c.username), Encoding.UTF8.GetBytes(c.password))).ToList();
+            _savedCredentials = DatabaseHelper.GetSavedCredentials(_userId, _encryptionKey).Select(c => (c.website, Convert.FromBase64String(c.username), Convert.FromBase64String(c.password))).ToList();
 
 
             websiteComboBox.Items.Clear();
@@ -47,13 +47,18 @@ namespace WinFormsApp1
                 byte[] encryptedUsername = _savedCredentials[selectedIndex].username;
                 byte[] encryptedPassword = _savedCredentials[selectedIndex].password;
 
-                string decryptedUsername = EncryptionHelper.Decrypt(Convert.ToBase64String(encryptedUsername), _encryptionKey);
-                string decryptedPassword = EncryptionHelper.Decrypt(Convert.ToBase64String(encryptedPassword), _encryptionKey);
+                // Convert encrypted byte arrays to Base64 strings
+                string base64EncryptedUsername = Convert.ToBase64String(encryptedUsername);
+                string base64EncryptedPassword = Convert.ToBase64String(encryptedPassword);
+
+                string decryptedUsername = EncryptionHelper.Decrypt(base64EncryptedUsername, _encryptionKey);
+                string decryptedPassword = EncryptionHelper.Decrypt(base64EncryptedPassword, _encryptionKey);
 
                 usernameLabel.Text = decryptedUsername;
                 passwordLabel.Text = decryptedPassword;
             }
         }
+
 
 
 

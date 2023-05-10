@@ -31,16 +31,16 @@ public static class EncryptionHelper
         }
     }
 
-    public static string Decrypt(string ciphertext, byte[] key)
+    public static string Decrypt(string base64Ciphertext, byte[] key)
     {
-        byte[] ciphertextBytes = Convert.FromBase64String(ciphertext);
+        byte[] ciphertext = Convert.FromBase64String(base64Ciphertext);
 
         using (Aes aes = Aes.Create())
         {
             aes.Key = key;
             aes.Mode = CipherMode.CBC;
 
-            using (var msDecrypt = new MemoryStream(ciphertextBytes))
+            using (var msDecrypt = new MemoryStream(ciphertext))
             {
                 byte[] iv = new byte[16];
                 msDecrypt.Read(iv, 0, 16);
