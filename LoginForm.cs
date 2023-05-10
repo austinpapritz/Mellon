@@ -31,10 +31,9 @@ namespace WinFormsApp1
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string nickname = nicknameTextBox.Text;
-            string? masterPassword = masterPasswordTextBox.Text;
-            
+            string masterPassword = masterPasswordTextBox.Text;
 
-            (byte[] storedHashedMasterPassword, byte[] storedSalt) = DatabaseHelper.GetStoredHashedMasterPassword(nickname);
+            (byte[]? storedHashedMasterPassword, byte[]? storedSalt) = DatabaseHelper.GetStoredHashedMasterPassword(nickname);
 
             if (storedHashedMasterPassword == null)
             {
@@ -46,16 +45,21 @@ namespace WinFormsApp1
 
             if (providedHashedMasterPassword.SequenceEqual(storedHashedMasterPassword))
             {
-
-
                 MessageBox.Show("Login successful!");
-                // Navigate to NewPassword or perform other actions upon successful login
                 _userId = DatabaseHelper.GetUserId(nickname);
 
-                _encryptionKey = GenerateEncryptionKey(masterPassword, storedSalt);
+                //check for valid username
+                if (_userId >= 0)
+                {
+                    _encryptionKey = GenerateEncryptionKey(masterPassword, storedSalt);
 
-                SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(_userId, _encryptionKey);
-                savedCredentialsForm.Show();
+                    SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(_userId, _encryptionKey);
+                    savedCredentialsForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid nickname.");
+                }
             }
             else
             {
@@ -63,8 +67,14 @@ namespace WinFormsApp1
             }
         }
 
-        private byte[] GenerateEncryptionKey(string masterPassword, byte[] salt)
+
+        private byte[] GenerateEncryptionKey(string masterPassword, byte[]? salt)
         {
+            if (salt == null)
+            {
+                throw new ArgumentNullException(nameof(salt));
+            }
+
             using (var kdf = new Rfc2898DeriveBytes(masterPassword, salt, 10000))
             {
                 return kdf.GetBytes(32); // Generate a 256-bit (32-byte) key

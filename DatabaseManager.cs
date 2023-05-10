@@ -4,7 +4,7 @@ namespace WinFormsApp1
 {
     public class DatabaseManager
     {
-        private static DatabaseManager _instance;
+        private static DatabaseManager? _instance;
         private SQLiteConnection _connection = new SQLiteConnection();
 
         public static DatabaseManager Instance
