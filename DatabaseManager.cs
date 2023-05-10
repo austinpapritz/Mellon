@@ -5,7 +5,7 @@ namespace WinFormsApp1
     public class DatabaseManager
     {
         private static DatabaseManager? _instance;
-        private SQLiteConnection _connection = new SQLiteConnection();
+        private SQLiteConnection? _connection;
 
         public static DatabaseManager Instance
         {
@@ -26,12 +26,20 @@ namespace WinFormsApp1
                 if (_connection == null)
                 {
                     _connection = new SQLiteConnection("Data Source=users.db");
+                }
+
+                if (_connection.State != System.Data.ConnectionState.Open)
+                {
                     _connection.Open();
                 }
+
                 return _connection;
             }
         }
 
-        private DatabaseManager() { }
+        private DatabaseManager()
+        {
+        }
     }
+
 }
