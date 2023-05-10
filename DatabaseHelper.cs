@@ -9,10 +9,9 @@ namespace WinFormsApp1
 {
     public static class DatabaseHelper
     {
-
         public static void SetUpDatabase()
         {
-            using (var command = new SQLiteCommand(DatabaseManager.Connection))
+            using (var command = new SQLiteCommand(DatabaseManager.Instance.Connection))
             {
                 command.CommandText = @"
                 CREATE TABLE IF NOT EXISTS Users (
@@ -33,7 +32,7 @@ namespace WinFormsApp1
             }
         }
 
-        public static (byte[] hashedMasterPassword, byte[] salt) GetStoredHashedMasterPassword(string nickname)
+        public static (byte[]? hashedMasterPassword, byte[]? salt) GetStoredHashedMasterPassword(string nickname)
         {
             using (var connection = new SQLiteConnection("Data Source=users.db"))
             {
@@ -91,9 +90,9 @@ namespace WinFormsApp1
 
 
 
-        public static List<(string website, string username, string password)> GetSavedCredentials(int userId, byte[] encryptionKey)
+        public static List<(string? website, string username, string password)> GetSavedCredentials(int userId, byte[] encryptionKey)
         {
-            List<(string website, string username, string password)> savedCredentials = new List<(string website, string username, string password)>();
+            List<(string? website, string username, string password)> savedCredentials = new List<(string? website, string username, string password)>();
 
             using (var connection = new SQLiteConnection("Data Source=users.db"))
             {
@@ -108,17 +107,20 @@ namespace WinFormsApp1
                     {
                         while (reader.Read())
                         {
-                            string website = reader["Website"].ToString();
-                            string encryptedUsername = reader["Username"].ToString();
-                            string encryptedPassword = reader["Password"].ToString();
+                            string website = (string)reader["Website"];
+                            string encryptedUsername = (string)reader["Username"];
+                            string encryptedPassword = (string)reader["Password"];
 
 
                             // Decrypt the username and password using the encryptionKey
-                            string username = EncryptionHelper.Decrypt(encryptedUsername, encryptionKey);
-                            string password = EncryptionHelper.Decrypt(encryptedPassword, encryptionKey);
+                            if (!string.IsNullOrEmpty(encryptedUsername) && !string.IsNullOrEmpty(encryptedPassword))
+                            {
+                                string username = EncryptionHelper.Decrypt(encryptedUsername, encryptionKey);
+                                string password = EncryptionHelper.Decrypt(encryptedPassword, encryptionKey);
 
 
-                            savedCredentials.Add((website, username, password));
+                                savedCredentials.Add((website, username, password));
+                            }
                         }
                     }
                 }

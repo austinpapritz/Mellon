@@ -14,7 +14,7 @@ namespace WinFormsApp1
     public partial class LoginForm : Form
     {
         private int _userId;
-        private byte[] _encryptionKey;
+        private byte[] _encryptionKey = Array.Empty<byte>();
 
         public LoginForm()
         {
@@ -31,7 +31,7 @@ namespace WinFormsApp1
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string nickname = nicknameTextBox.Text;
-            string masterPassword = masterPasswordTextBox.Text;
+            string? masterPassword = masterPasswordTextBox.Text;
             
 
             (byte[] storedHashedMasterPassword, byte[] storedSalt) = DatabaseHelper.GetStoredHashedMasterPassword(nickname);

@@ -45,7 +45,7 @@ namespace WinFormsApp1
         {
             (byte[] hashedMasterPassword, byte[] salt) = PasswordHelper.HashMasterPassword(masterPassword);
 
-            using (var command = new SQLiteCommand(DatabaseManager.Connection))
+            using (var command = new SQLiteCommand(DatabaseManager.Instance.Connection))
             {
                 command.CommandText = @"
 INSERT INTO Users (Nickname, Salt, HashedMasterPassword)

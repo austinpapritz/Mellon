@@ -4,9 +4,22 @@ namespace WinFormsApp1
 {
     public class DatabaseManager
     {
-        private static SQLiteConnection _connection;
+        private static DatabaseManager _instance;
+        private SQLiteConnection _connection = new SQLiteConnection();
 
-        public static SQLiteConnection Connection
+        public static DatabaseManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new DatabaseManager();
+                }
+                return _instance;
+            }
+        }
+
+        public SQLiteConnection Connection
         {
             get
             {
@@ -18,5 +31,7 @@ namespace WinFormsApp1
                 return _connection;
             }
         }
+
+        private DatabaseManager() { }
     }
 }

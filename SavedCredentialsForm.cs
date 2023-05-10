@@ -13,7 +13,7 @@ namespace WinFormsApp1
 {
     public partial class SavedCredentialsForm : Form
     {
-        private List<(string website, byte[] username, byte[] password)> _savedCredentials;
+        private List<(string? website, byte[] username, byte[] password)>? _savedCredentials;
         private int _userId;
         private byte[] _encryptionKey;
 
@@ -27,22 +27,31 @@ namespace WinFormsApp1
 
         private void LoadSavedCredentials()
         {
-
-            _savedCredentials = DatabaseHelper.GetSavedCredentials(_userId, _encryptionKey).Select(c => (c.website, Convert.FromBase64String(c.username), Convert.FromBase64String(c.password))).ToList();
-
+            _savedCredentials = DatabaseHelper.GetSavedCredentials(_userId, _encryptionKey)
+                .Select(c => (c.website, Convert.FromBase64String(c.username), Convert.FromBase64String(c.password)))
+                .ToList();
 
             websiteComboBox.Items.Clear();
             foreach (var credential in _savedCredentials)
             {
-                websiteComboBox.Items.Add(credential.website);
+                // Check if the website is not null before adding it to the ComboBox
+                if (credential.website != null)
+                {
+                    websiteComboBox.Items.Add(credential.website);
+                } 
+                else
+                {
+                    MessageBox.Show("Please add a website.");
+                }
             }
         }
+
 
         private void websiteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = websiteComboBox.SelectedIndex;
 
-            if (selectedIndex >= 0 && selectedIndex < _savedCredentials.Count)
+            if (_savedCredentials != null && selectedIndex >= 0 && selectedIndex < _savedCredentials.Count)
             {
                 byte[] encryptedUsername = _savedCredentials[selectedIndex].username;
                 byte[] encryptedPassword = _savedCredentials[selectedIndex].password;
