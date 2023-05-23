@@ -34,9 +34,9 @@
             // 
             // signUpButton
             // 
-            signUpButton.Location = new Point(50, 50);
+            signUpButton.Location = new Point(12, 12);
             signUpButton.Name = "signUpButton";
-            signUpButton.Size = new Size(200, 100);
+            signUpButton.Size = new Size(110, 48);
             signUpButton.TabIndex = 0;
             signUpButton.Text = "Sign Up";
             signUpButton.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // logInButton
             // 
-            logInButton.Location = new Point(50, 200);
+            logInButton.Location = new Point(117, 12);
             logInButton.Name = "logInButton";
-            logInButton.Size = new Size(200, 100);
+            logInButton.Size = new Size(110, 48);
             logInButton.TabIndex = 1;
             logInButton.Text = "Log In";
             logInButton.UseVisualStyleBackColor = true;
@@ -56,9 +56,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(300, 350);
+            BackColor = Color.SlateGray;
+            ClientSize = new Size(243, 317);
             Controls.Add(logInButton);
             Controls.Add(signUpButton);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "WelcomeForm";
             Text = "Welcome";
             ResumeLayout(false);
