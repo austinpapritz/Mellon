@@ -94,5 +94,39 @@ VALUES (@nickname, @salt, @hashedMasterPassword);";
             showPasswordPictureBox.Visible = false;
             hidePasswordPictureBox.Visible = true;
         }
+
+        private void masterPasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CheckPasswordsMatch();
+        }
+
+        private void confirmPasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CheckPasswordsMatch();
+        }
+
+
+        private void CheckPasswordsMatch()
+        {
+            if (masterPasswordTextBox.Text == confirmPasswordTextBox.Text)
+                {
+                    // If the passwords match, show the check icon
+                    passwordMisMatchPictureBox.Visible = false;
+                    passwordMatchPictureBox.Visible = true;
+                }
+            else 
+            {
+                if ((!string.IsNullOrEmpty(masterPasswordTextBox.Text) && // Verify there is text in both fields before showing X icon
+                     !string.IsNullOrEmpty(confirmPasswordTextBox.Text)))
+                    {
+                        // Otherwise, hide it.
+                        passwordMatchPictureBox.Visible = false;
+                        passwordMisMatchPictureBox.Visible = true;
+                    }
+                
+            }
+        }
+
+
     }
 }

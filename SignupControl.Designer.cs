@@ -31,8 +31,12 @@
             saveMasterPasswordButton = new Button();
             hidePasswordPictureBox = new PictureBox();
             showPasswordPictureBox = new PictureBox();
+            passwordMatchPictureBox = new PictureBox();
+            passwordMisMatchPictureBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)hidePasswordPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)showPasswordPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)passwordMatchPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)passwordMisMatchPictureBox).BeginInit();
             SuspendLayout();
             // 
             // nicknameLabel
@@ -76,6 +80,7 @@
             masterPasswordTextBox.Size = new Size(200, 23);
             masterPasswordTextBox.TabIndex = 4;
             masterPasswordTextBox.UseSystemPasswordChar = true;
+            masterPasswordTextBox.TextChanged += masterPasswordTextBox_TextChanged;
             // 
             // confirmPasswordTextBox
             // 
@@ -84,6 +89,7 @@
             confirmPasswordTextBox.Size = new Size(200, 23);
             confirmPasswordTextBox.TabIndex = 5;
             confirmPasswordTextBox.UseSystemPasswordChar = true;
+            confirmPasswordTextBox.TextChanged += confirmPasswordTextBox_TextChanged;
             // 
             // saveMasterPasswordButton
             // 
@@ -118,10 +124,34 @@
             showPasswordPictureBox.Visible = false;
             showPasswordPictureBox.Click += showPasswordPictureBox_Click;
             // 
+            // passwordMatchPictureBox
+            // 
+            passwordMatchPictureBox.Image = Properties.Resources.check_square;
+            passwordMatchPictureBox.Location = new Point(3, 117);
+            passwordMatchPictureBox.Name = "passwordMatchPictureBox";
+            passwordMatchPictureBox.Size = new Size(16, 19);
+            passwordMatchPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            passwordMatchPictureBox.TabIndex = 9;
+            passwordMatchPictureBox.TabStop = false;
+            passwordMatchPictureBox.Visible = false;
+            // 
+            // passwordMisMatchPictureBox
+            // 
+            passwordMisMatchPictureBox.Image = Properties.Resources.x_square;
+            passwordMisMatchPictureBox.Location = new Point(3, 115);
+            passwordMisMatchPictureBox.Name = "passwordMisMatchPictureBox";
+            passwordMisMatchPictureBox.Size = new Size(16, 19);
+            passwordMisMatchPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            passwordMisMatchPictureBox.TabIndex = 10;
+            passwordMisMatchPictureBox.TabStop = false;
+            passwordMisMatchPictureBox.Visible = false;
+            // 
             // SignupControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(passwordMisMatchPictureBox);
+            Controls.Add(passwordMatchPictureBox);
             Controls.Add(showPasswordPictureBox);
             Controls.Add(hidePasswordPictureBox);
             Controls.Add(confirmPasswordTextBox);
@@ -136,6 +166,8 @@
             Size = new Size(254, 174);
             ((System.ComponentModel.ISupportInitialize)hidePasswordPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)showPasswordPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)passwordMatchPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)passwordMisMatchPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -149,5 +181,7 @@
         private Button saveMasterPasswordButton;
         private PictureBox hidePasswordPictureBox;
         private PictureBox showPasswordPictureBox;
+        private PictureBox passwordMatchPictureBox;
+        private PictureBox passwordMisMatchPictureBox;
     }
 }

@@ -63,6 +63,16 @@ namespace WinFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check_square {
+            get {
+                object obj = ResourceManager.GetObject("check-square", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye {
             get {
                 object obj = ResourceManager.GetObject("eye", resourceCulture);
@@ -96,6 +106,16 @@ namespace WinFormsApp1.Properties {
         internal static System.Drawing.Bitmap wizard_hat {
             get {
                 object obj = ResourceManager.GetObject("wizard-hat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_square {
+            get {
+                object obj = ResourceManager.GetObject("x-square", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
