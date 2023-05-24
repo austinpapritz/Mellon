@@ -56,12 +56,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.SlateGray;
+            BackColor = Color.FromArgb(38, 69, 57);
             ClientSize = new Size(243, 317);
             Controls.Add(logInButton);
             Controls.Add(signUpButton);
             FormBorderStyle = FormBorderStyle.None;
             Name = "WelcomeForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Welcome";
             ResumeLayout(false);
         }
