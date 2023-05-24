@@ -29,43 +29,67 @@
         private void InitializeComponent()
         {
             NavigationPanel = new Panel();
-            MainContentPanel = new Panel();
-            panel1 = new Panel();
+            newPasswordNavButton = new Button();
+            UserPanel = new Panel();
+            NicknameLabel = new Label();
             UserAvatar = new PictureBox();
-            label1 = new Label();
-            newPasswordButton = new Button();
+            MainContentPanel = new Panel();
             NavigationPanel.SuspendLayout();
-            panel1.SuspendLayout();
+            UserPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserAvatar).BeginInit();
             SuspendLayout();
             // 
             // NavigationPanel
             // 
             NavigationPanel.BackColor = Color.FromArgb(58, 59, 66);
-            NavigationPanel.Controls.Add(newPasswordButton);
-            NavigationPanel.Controls.Add(panel1);
+            NavigationPanel.Controls.Add(newPasswordNavButton);
+            NavigationPanel.Controls.Add(UserPanel);
             NavigationPanel.Dock = DockStyle.Left;
             NavigationPanel.Location = new Point(0, 0);
             NavigationPanel.Name = "NavigationPanel";
             NavigationPanel.Size = new Size(186, 577);
             NavigationPanel.TabIndex = 0;
             // 
-            // MainContentPanel
+            // newPasswordNavButton
             // 
-            MainContentPanel.Location = new Point(183, 0);
-            MainContentPanel.Name = "MainContentPanel";
-            MainContentPanel.Size = new Size(770, 577);
-            MainContentPanel.TabIndex = 1;
+            newPasswordNavButton.Cursor = Cursors.Hand;
+            newPasswordNavButton.Dock = DockStyle.Top;
+            newPasswordNavButton.FlatAppearance.BorderSize = 0;
+            newPasswordNavButton.FlatStyle = FlatStyle.Flat;
+            newPasswordNavButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            newPasswordNavButton.ForeColor = Color.FromArgb(128, 161, 193);
+            newPasswordNavButton.Image = Properties.Resources.plus_square;
+            newPasswordNavButton.Location = new Point(0, 120);
+            newPasswordNavButton.Name = "newPasswordNavButton";
+            newPasswordNavButton.Size = new Size(186, 42);
+            newPasswordNavButton.TabIndex = 0;
+            newPasswordNavButton.Text = "New Password ";
+            newPasswordNavButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+            newPasswordNavButton.UseVisualStyleBackColor = true;
+            newPasswordNavButton.Click += newPasswordNavButton_Click;
             // 
-            // panel1
+            // UserPanel
             // 
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(UserAvatar);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(186, 120);
-            panel1.TabIndex = 0;
+            UserPanel.Controls.Add(NicknameLabel);
+            UserPanel.Controls.Add(UserAvatar);
+            UserPanel.Dock = DockStyle.Top;
+            UserPanel.Location = new Point(0, 0);
+            UserPanel.Name = "UserPanel";
+            UserPanel.Size = new Size(186, 120);
+            UserPanel.TabIndex = 0;
+            // 
+            // NicknameLabel
+            // 
+            NicknameLabel.AutoSize = true;
+            NicknameLabel.BackColor = Color.FromArgb(58, 59, 66);
+            NicknameLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            NicknameLabel.ForeColor = Color.FromArgb(242, 197, 124);
+            NicknameLabel.Location = new Point(48, 92);
+            NicknameLabel.Name = "NicknameLabel";
+            NicknameLabel.Size = new Size(76, 16);
+            NicknameLabel.TabIndex = 1;
+            NicknameLabel.Text = "Nickname";
+            NicknameLabel.Click += label1_Click;
             // 
             // UserAvatar
             // 
@@ -77,35 +101,12 @@
             UserAvatar.TabIndex = 0;
             UserAvatar.TabStop = false;
             // 
-            // label1
+            // MainContentPanel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(58, 59, 66);
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(242, 197, 124);
-            label1.Location = new Point(48, 92);
-            label1.Name = "label1";
-            label1.Size = new Size(76, 16);
-            label1.TabIndex = 1;
-            label1.Text = "Nickname";
-            label1.Click += label1_Click;
-            // 
-            // newPasswordButton
-            // 
-            newPasswordButton.Cursor = Cursors.Hand;
-            newPasswordButton.Dock = DockStyle.Top;
-            newPasswordButton.FlatAppearance.BorderSize = 0;
-            newPasswordButton.FlatStyle = FlatStyle.Flat;
-            newPasswordButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            newPasswordButton.ForeColor = Color.FromArgb(128, 161, 193);
-            newPasswordButton.Image = Properties.Resources.plus_square;
-            newPasswordButton.Location = new Point(0, 120);
-            newPasswordButton.Name = "newPasswordButton";
-            newPasswordButton.Size = new Size(186, 42);
-            newPasswordButton.TabIndex = 0;
-            newPasswordButton.Text = "New Password ";
-            newPasswordButton.TextImageRelation = TextImageRelation.TextBeforeImage;
-            newPasswordButton.UseVisualStyleBackColor = true;
+            MainContentPanel.Location = new Point(183, 0);
+            MainContentPanel.Name = "MainContentPanel";
+            MainContentPanel.Size = new Size(770, 577);
+            MainContentPanel.TabIndex = 1;
             // 
             // HomePage
             // 
@@ -120,8 +121,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HomePage";
             NavigationPanel.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            UserPanel.ResumeLayout(false);
+            UserPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)UserAvatar).EndInit();
             ResumeLayout(false);
         }
@@ -130,9 +131,9 @@
 
         private Panel NavigationPanel;
         private Panel MainContentPanel;
-        private Panel panel1;
-        private Label label1;
+        private Panel UserPanel;
+        private Label NicknameLabel;
         private PictureBox UserAvatar;
-        private Button newPasswordButton;
+        private Button newPasswordNavButton;
     }
 }

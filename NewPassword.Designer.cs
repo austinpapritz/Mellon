@@ -39,41 +39,41 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(209, 124);
+            textBox1.Location = new Point(239, 141);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 23);
+            textBox1.Size = new Size(281, 25);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(209, 187);
+            textBox2.Location = new Point(239, 212);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(246, 23);
+            textBox2.Size = new Size(281, 25);
             textBox2.TabIndex = 1;
             // 
             // website
             // 
             website.AutoSize = true;
-            website.Location = new Point(307, 106);
+            website.Location = new Point(351, 120);
             website.Name = "website";
-            website.Size = new Size(47, 15);
+            website.Size = new Size(55, 17);
             website.TabIndex = 3;
             website.Text = "website";
             // 
             // username
             // 
             username.AutoSize = true;
-            username.Location = new Point(304, 169);
+            username.Location = new Point(347, 192);
             username.Name = "username";
-            username.Size = new Size(59, 15);
+            username.Size = new Size(68, 17);
             username.TabIndex = 4;
             username.Text = "username";
             // 
             // btnSavePW
             // 
-            btnSavePW.Location = new Point(275, 340);
+            btnSavePW.Location = new Point(314, 385);
             btnSavePW.Name = "btnSavePW";
-            btnSavePW.Size = new Size(120, 58);
+            btnSavePW.Size = new Size(137, 66);
             btnSavePW.TabIndex = 6;
             btnSavePW.Text = "Save";
             btnSavePW.UseVisualStyleBackColor = true;
@@ -82,27 +82,27 @@
             // lblGeneratePW
             // 
             lblGeneratePW.AutoSize = true;
-            lblGeneratePW.Location = new Point(214, 239);
+            lblGeneratePW.Location = new Point(245, 271);
             lblGeneratePW.Name = "lblGeneratePW";
-            lblGeneratePW.Size = new Size(0, 15);
+            lblGeneratePW.Size = new Size(0, 17);
             lblGeneratePW.TabIndex = 0;
             // 
             // btnGeneratedPW
             // 
-            btnGeneratedPW.Location = new Point(268, 267);
+            btnGeneratedPW.Location = new Point(306, 303);
             btnGeneratedPW.Name = "btnGeneratedPW";
-            btnGeneratedPW.Size = new Size(127, 23);
+            btnGeneratedPW.Size = new Size(145, 26);
             btnGeneratedPW.TabIndex = 7;
             btnGeneratedPW.Text = "Generate Password";
             btnGeneratedPW.UseVisualStyleBackColor = true;
-            btnGeneratedPW.Click += new System.EventHandler(this.btnGeneratePW_Click);
-
+            btnGeneratedPW.Click += btnGeneratePW_Click;
             // 
-            // Form1
+            // NewPassword
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(670, 410);
+            BackColor = Color.FromArgb(38, 69, 57);
+            ClientSize = new Size(766, 465);
             Controls.Add(btnGeneratedPW);
             Controls.Add(lblGeneratePW);
             Controls.Add(btnSavePW);
@@ -110,8 +110,10 @@
             Controls.Add(website);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Name = "Form1";
-            Text = "Form1";
+            Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "NewPassword";
+            Text = "New Password";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -71,7 +71,7 @@ namespace WinFormsApp1
                 !string.IsNullOrWhiteSpace(username) &&
                 !string.IsNullOrWhiteSpace(password))
 
-                
+
             {
                 string encryptedUsername = EncryptionHelper.Encrypt(username, _encryptionKey);
                 string encryptedPassword = EncryptionHelper.Encrypt(password, _encryptionKey);

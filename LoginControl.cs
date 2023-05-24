@@ -51,8 +51,8 @@ namespace WinFormsApp1
                     // the encryptionKey is generated here and used throughout the session to save and access credentials
                     _encryptionKey = GenerateEncryptionKey(masterPassword, storedSalt);
 
-                    SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(_userId, _encryptionKey);
-                    savedCredentialsForm.Show();
+                    HomePage homePage = new HomePage(nickname, _userId, _encryptionKey);
+                    homePage.Show();
                 }
                 else
                 {
