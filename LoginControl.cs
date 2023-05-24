@@ -77,7 +77,7 @@ namespace WinFormsApp1
             // standard PBKDF2 algorithm to generate key which is 32 bytes long
             using (var kdf = new Rfc2898DeriveBytes(masterPassword, salt, 10000))
             {
-                return kdf.GetBytes(32); 
+                return kdf.GetBytes(32);
             }
         }
 

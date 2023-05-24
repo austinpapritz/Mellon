@@ -72,6 +72,7 @@
             // 
             masterPasswordTextBox.Location = new Point(18, 84);
             masterPasswordTextBox.Name = "masterPasswordTextBox";
+            masterPasswordTextBox.PasswordChar = '*';
             masterPasswordTextBox.Size = new Size(200, 23);
             masterPasswordTextBox.TabIndex = 5;
             // 
@@ -86,7 +87,7 @@
             Controls.Add(masterPasswordTextBox);
             Location = new Point(0, 100);
             Name = "LoginControl";
-            Size = new Size(232, 174);
+            Size = new Size(246, 174);
             Load += LoginControl_Load;
             ResumeLayout(false);
             PerformLayout();

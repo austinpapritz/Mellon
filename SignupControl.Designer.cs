@@ -69,6 +69,7 @@
             // 
             masterPasswordTextBox.Location = new Point(17, 73);
             masterPasswordTextBox.Name = "masterPasswordTextBox";
+            masterPasswordTextBox.PasswordChar = '*';
             masterPasswordTextBox.Size = new Size(200, 23);
             masterPasswordTextBox.TabIndex = 4;
             // 
@@ -76,6 +77,7 @@
             // 
             confirmPasswordTextBox.Location = new Point(17, 115);
             confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            confirmPasswordTextBox.PasswordChar = '*';
             confirmPasswordTextBox.Size = new Size(200, 23);
             confirmPasswordTextBox.TabIndex = 5;
             // 
