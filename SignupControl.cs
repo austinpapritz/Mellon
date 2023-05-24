@@ -71,5 +71,28 @@ VALUES (@nickname, @salt, @hashedMasterPassword);";
                 }
             }
         }
+
+        private void hidePasswordPictureBox_Click(object sender, EventArgs e)
+        {
+            // Change from hide to show 
+            masterPasswordTextBox.UseSystemPasswordChar = false;
+            confirmPasswordTextBox.UseSystemPasswordChar = false;
+
+            // Swap the visibility of the PictureBox controls
+            showPasswordPictureBox.Visible = true;
+            hidePasswordPictureBox.Visible = false;
+
+        }
+
+        private void showPasswordPictureBox_Click(object sender, EventArgs e)
+        {
+            // Change from show to hide
+            masterPasswordTextBox.UseSystemPasswordChar = true;
+            confirmPasswordTextBox.UseSystemPasswordChar = true;
+
+            // Swap the visibility of the PictureBox controls
+            showPasswordPictureBox.Visible = false;
+            hidePasswordPictureBox.Visible = true;
+        }
     }
 }

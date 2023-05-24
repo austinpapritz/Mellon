@@ -88,7 +88,7 @@ namespace WinFormsApp1
         private void hidePasswordPictureBox_Click(object sender, EventArgs e)
         {
 
-            // Hide the password
+            // Change from hide to show 
             masterPasswordTextBox.UseSystemPasswordChar = false;
 
             // Swap the visibility of the PictureBox controls
@@ -99,7 +99,7 @@ namespace WinFormsApp1
 
         private void showPasswordPictureBox_Click(object sender, EventArgs e)
         {
-            // Reveal the password
+            // Change from show to hide
             masterPasswordTextBox.UseSystemPasswordChar = true;
 
             // Swap the visibility of the PictureBox controls
