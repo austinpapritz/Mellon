@@ -109,21 +109,21 @@ VALUES (@nickname, @salt, @hashedMasterPassword);";
         private void CheckPasswordsMatch()
         {
             if (masterPasswordTextBox.Text == confirmPasswordTextBox.Text)
-                {
-                    // If the passwords match, show the check icon
-                    passwordMisMatchPictureBox.Visible = false;
-                    passwordMatchPictureBox.Visible = true;
-                }
-            else 
+            {
+                // If the passwords match, show the check icon
+                passwordMisMatchPictureBox.Visible = false;
+                passwordMatchPictureBox.Visible = true;
+            }
+            else
             {
                 if ((!string.IsNullOrEmpty(masterPasswordTextBox.Text) && // Verify there is text in both fields before showing X icon
                      !string.IsNullOrEmpty(confirmPasswordTextBox.Text)))
-                    {
-                        // Otherwise, hide it.
-                        passwordMatchPictureBox.Visible = false;
-                        passwordMisMatchPictureBox.Visible = true;
-                    }
-                
+                {
+                    // Otherwise, hide it.
+                    passwordMatchPictureBox.Visible = false;
+                    passwordMisMatchPictureBox.Visible = true;
+                }
+
             }
         }
 

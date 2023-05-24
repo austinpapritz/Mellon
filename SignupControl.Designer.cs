@@ -97,7 +97,7 @@
             saveMasterPasswordButton.Name = "saveMasterPasswordButton";
             saveMasterPasswordButton.Size = new Size(200, 23);
             saveMasterPasswordButton.TabIndex = 6;
-            saveMasterPasswordButton.Text = "Save Master Password";
+            saveMasterPasswordButton.Text = "Sign up";
             saveMasterPasswordButton.UseVisualStyleBackColor = true;
             saveMasterPasswordButton.Click += SaveMasterPasswordButton_Click;
             // 
