@@ -104,7 +104,7 @@
             Controls.Add(saveMasterPasswordButton);
             Location = new Point(0, 100);
             Name = "SignupControl";
-            Size = new Size(232, 174);
+            Size = new Size(240, 174);
             ResumeLayout(false);
             PerformLayout();
         }

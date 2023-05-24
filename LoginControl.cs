@@ -22,7 +22,6 @@ namespace WinFormsApp1
             DatabaseHelper.SetUpDatabase();
         }
 
-
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string nickname = nicknameTextBox.Text;
@@ -83,6 +82,29 @@ namespace WinFormsApp1
 
         private void LoginControl_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void hidePasswordPictureBox_Click(object sender, EventArgs e)
+        {
+
+            // Hide the password
+            masterPasswordTextBox.UseSystemPasswordChar = false;
+
+            // Swap the visibility of the PictureBox controls
+            showPasswordPictureBox.Visible = true;
+            hidePasswordPictureBox.Visible = false;
+
+        }
+
+        private void showPasswordPictureBox_Click(object sender, EventArgs e)
+        {
+            // Reveal the password
+            masterPasswordTextBox.UseSystemPasswordChar = true;
+
+            // Swap the visibility of the PictureBox controls
+            showPasswordPictureBox.Visible = false;
+            hidePasswordPictureBox.Visible = true;
 
         }
     }
