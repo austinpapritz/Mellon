@@ -13,7 +13,7 @@ namespace WinFormsApp1
     public partial class WelcomeForm : Form
     {
         private SignupControl signupControl;
-        //private LoginControl loginControl;
+        private LoginControl loginControl;
 
         public WelcomeForm()
         {
@@ -21,21 +21,21 @@ namespace WinFormsApp1
 
             // Initialize UserControls and add to form
             signupControl = new SignupControl();
-            //loginControl = new LoginControl();
+            loginControl = new LoginControl();
 
             // Add to form
             this.Controls.Add(signupControl);
-            //this.Controls.Add(loginControl);
+            this.Controls.Add(loginControl);
 
             // Initially set to invisible
             signupControl.Visible = false;
-            //loginControl.Visible = false;
+            loginControl.Visible = false;
         }
 
         private void SignupButton_Click(object sender, EventArgs e)
         {
             // Hide Login UserControl and show Signup UserControl
-            //loginControl.Visible = false;
+            loginControl.Visible = false;
             signupControl.Visible = true;
         }
 
@@ -43,7 +43,7 @@ namespace WinFormsApp1
         {
             // Hide Signup UserControl and show Login UserControl
             signupControl.Visible = false;
-            //loginControl.Visible = true;
+            loginControl.Visible = true;
         }
 
     }
