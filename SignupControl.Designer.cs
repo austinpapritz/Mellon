@@ -98,7 +98,7 @@
             // hidePasswordPictureBox
             // 
             hidePasswordPictureBox.Image = Properties.Resources.eye_off;
-            hidePasswordPictureBox.Location = new Point(231, 115);
+            hidePasswordPictureBox.Location = new Point(231, 118);
             hidePasswordPictureBox.Name = "hidePasswordPictureBox";
             hidePasswordPictureBox.Size = new Size(20, 18);
             hidePasswordPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -109,7 +109,7 @@
             // showPasswordPictureBox
             // 
             showPasswordPictureBox.Image = Properties.Resources.eye;
-            showPasswordPictureBox.Location = new Point(231, 139);
+            showPasswordPictureBox.Location = new Point(231, 118);
             showPasswordPictureBox.Name = "showPasswordPictureBox";
             showPasswordPictureBox.Size = new Size(20, 18);
             showPasswordPictureBox.SizeMode = PictureBoxSizeMode.Zoom;

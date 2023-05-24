@@ -34,7 +34,7 @@
             // 
             // signUpButton
             // 
-            signUpButton.Location = new Point(12, 12);
+            signUpButton.Location = new Point(19, 12);
             signUpButton.Name = "signUpButton";
             signUpButton.Size = new Size(110, 48);
             signUpButton.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // logInButton
             // 
-            logInButton.Location = new Point(117, 12);
+            logInButton.Location = new Point(124, 12);
             logInButton.Name = "logInButton";
             logInButton.Size = new Size(110, 48);
             logInButton.TabIndex = 1;
@@ -57,7 +57,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(38, 69, 57);
-            ClientSize = new Size(243, 317);
+            ClientSize = new Size(254, 317);
             Controls.Add(logInButton);
             Controls.Add(signUpButton);
             FormBorderStyle = FormBorderStyle.None;

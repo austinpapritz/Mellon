@@ -40,7 +40,7 @@
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(76, 113);
+            loginButton.Location = new Point(83, 113);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(75, 23);
             loginButton.TabIndex = 1;
@@ -50,7 +50,7 @@
             // nicknameLabel
             // 
             nicknameLabel.AutoSize = true;
-            nicknameLabel.Location = new Point(84, 12);
+            nicknameLabel.Location = new Point(92, 12);
             nicknameLabel.Name = "nicknameLabel";
             nicknameLabel.Size = new Size(61, 15);
             nicknameLabel.TabIndex = 2;
@@ -59,7 +59,7 @@
             // masterPasswordLabel
             // 
             masterPasswordLabel.AutoSize = true;
-            masterPasswordLabel.Location = new Point(66, 67);
+            masterPasswordLabel.Location = new Point(73, 67);
             masterPasswordLabel.Name = "masterPasswordLabel";
             masterPasswordLabel.Size = new Size(96, 15);
             masterPasswordLabel.TabIndex = 3;
@@ -67,14 +67,14 @@
             // 
             // nicknameTextBox
             // 
-            nicknameTextBox.Location = new Point(18, 29);
+            nicknameTextBox.Location = new Point(25, 29);
             nicknameTextBox.Name = "nicknameTextBox";
             nicknameTextBox.Size = new Size(200, 23);
             nicknameTextBox.TabIndex = 4;
             // 
             // masterPasswordTextBox
             // 
-            masterPasswordTextBox.Location = new Point(18, 84);
+            masterPasswordTextBox.Location = new Point(25, 84);
             masterPasswordTextBox.Name = "masterPasswordTextBox";
             masterPasswordTextBox.Size = new Size(200, 23);
             masterPasswordTextBox.TabIndex = 5;
@@ -83,7 +83,7 @@
             // hidePasswordPictureBox
             // 
             hidePasswordPictureBox.Image = Properties.Resources.eye_off;
-            hidePasswordPictureBox.Location = new Point(220, 87);
+            hidePasswordPictureBox.Location = new Point(227, 87);
             hidePasswordPictureBox.Name = "hidePasswordPictureBox";
             hidePasswordPictureBox.Size = new Size(17, 20);
             hidePasswordPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -94,7 +94,7 @@
             // showPasswordPictureBox
             // 
             showPasswordPictureBox.Image = Properties.Resources.eye;
-            showPasswordPictureBox.Location = new Point(220, 87);
+            showPasswordPictureBox.Location = new Point(227, 87);
             showPasswordPictureBox.Name = "showPasswordPictureBox";
             showPasswordPictureBox.Size = new Size(17, 20);
             showPasswordPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -116,7 +116,7 @@
             Controls.Add(masterPasswordTextBox);
             Location = new Point(0, 100);
             Name = "LoginControl";
-            Size = new Size(240, 174);
+            Size = new Size(254, 174);
             Load += LoginControl_Load;
             ((System.ComponentModel.ISupportInitialize)hidePasswordPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)showPasswordPictureBox).EndInit();
