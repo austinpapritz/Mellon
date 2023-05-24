@@ -28,6 +28,7 @@ namespace WinFormsApp1
             string nickname = nicknameTextBox.Text;
             string masterPassword = masterPasswordTextBox.Text;
 
+            // get the hashed password and salt from database
             (byte[]? storedHashedMasterPassword, byte[]? storedSalt) = DatabaseHelper.GetStoredHashedMasterPassword(nickname);
 
             if (storedHashedMasterPassword == null)
@@ -36,6 +37,7 @@ namespace WinFormsApp1
                 return;
             }
 
+            // take both the master password that user enters and salt value from above and create a provdedHashedMasterPassword to compare to one in database
             (byte[] providedHashedMasterPassword, _) = PasswordHelper.HashMasterPassword(masterPassword, storedSalt);
 
             if (providedHashedMasterPassword.SequenceEqual(storedHashedMasterPassword))
@@ -46,6 +48,7 @@ namespace WinFormsApp1
                 //check for valid username
                 if (_userId >= 0)
                 {
+                    // the encryptionKey is generated here and used throughout the session to save and access credentials
                     _encryptionKey = GenerateEncryptionKey(masterPassword, storedSalt);
 
                     SavedCredentialsForm savedCredentialsForm = new SavedCredentialsForm(_userId, _encryptionKey);
@@ -65,14 +68,16 @@ namespace WinFormsApp1
 
         private byte[] GenerateEncryptionKey(string masterPassword, byte[]? salt)
         {
+            // check for salt
             if (salt == null)
             {
                 throw new ArgumentNullException(nameof(salt));
             }
 
+            // standard PBKDF2 algorithm to generate key which is 32 bytes long
             using (var kdf = new Rfc2898DeriveBytes(masterPassword, salt, 10000))
             {
-                return kdf.GetBytes(32); // Generate a 256-bit (32-byte) key
+                return kdf.GetBytes(32); 
             }
         }
 
