@@ -75,5 +75,10 @@ namespace WinFormsApp1
                 return kdf.GetBytes(32); // Generate a 256-bit (32-byte) key
             }
         }
+
+        private void LoginControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

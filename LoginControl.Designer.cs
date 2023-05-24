@@ -36,7 +36,7 @@
             // 
             // loginButton
             // 
-            loginButton.Location = new Point(230, 135);
+            loginButton.Location = new Point(76, 113);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(75, 23);
             loginButton.TabIndex = 1;
@@ -46,7 +46,7 @@
             // nicknameLabel
             // 
             nicknameLabel.AutoSize = true;
-            nicknameLabel.Location = new Point(30, 60);
+            nicknameLabel.Location = new Point(84, 12);
             nicknameLabel.Name = "nicknameLabel";
             nicknameLabel.Size = new Size(61, 15);
             nicknameLabel.TabIndex = 2;
@@ -55,7 +55,7 @@
             // masterPasswordLabel
             // 
             masterPasswordLabel.AutoSize = true;
-            masterPasswordLabel.Location = new Point(30, 100);
+            masterPasswordLabel.Location = new Point(66, 67);
             masterPasswordLabel.Name = "masterPasswordLabel";
             masterPasswordLabel.Size = new Size(96, 15);
             masterPasswordLabel.TabIndex = 3;
@@ -63,14 +63,14 @@
             // 
             // nicknameTextBox
             // 
-            nicknameTextBox.Location = new Point(150, 57);
+            nicknameTextBox.Location = new Point(18, 29);
             nicknameTextBox.Name = "nicknameTextBox";
             nicknameTextBox.Size = new Size(200, 23);
             nicknameTextBox.TabIndex = 4;
             // 
             // masterPasswordTextBox
             // 
-            masterPasswordTextBox.Location = new Point(150, 97);
+            masterPasswordTextBox.Location = new Point(18, 84);
             masterPasswordTextBox.Name = "masterPasswordTextBox";
             masterPasswordTextBox.Size = new Size(200, 23);
             masterPasswordTextBox.TabIndex = 5;
@@ -84,8 +84,10 @@
             Controls.Add(masterPasswordLabel);
             Controls.Add(nicknameTextBox);
             Controls.Add(masterPasswordTextBox);
+            Location = new Point(0, 100);
             Name = "LoginControl";
-            Size = new Size(400, 200);
+            Size = new Size(232, 174);
+            Load += LoginControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }

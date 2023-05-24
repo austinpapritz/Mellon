@@ -34,54 +34,54 @@
             // nicknameLabel
             // 
             nicknameLabel.AutoSize = true;
-            nicknameLabel.Location = new Point(30, 30);
+            nicknameLabel.Location = new Point(84, 12);
             nicknameLabel.Name = "nicknameLabel";
-            nicknameLabel.Size = new Size(58, 15);
+            nicknameLabel.Size = new Size(61, 15);
             nicknameLabel.TabIndex = 0;
             nicknameLabel.Text = "Nickname";
             // 
             // masterPasswordLabel
             // 
             masterPasswordLabel.AutoSize = true;
-            masterPasswordLabel.Location = new Point(30, 80);
+            masterPasswordLabel.Location = new Point(68, 56);
             masterPasswordLabel.Name = "masterPasswordLabel";
-            masterPasswordLabel.Size = new Size(100, 15);
+            masterPasswordLabel.Size = new Size(96, 15);
             masterPasswordLabel.TabIndex = 1;
             masterPasswordLabel.Text = "Master Password";
             // 
             // confirmPasswordLabel
             // 
             confirmPasswordLabel.AutoSize = true;
-            confirmPasswordLabel.Location = new Point(30, 130);
+            confirmPasswordLabel.Location = new Point(64, 98);
             confirmPasswordLabel.Name = "confirmPasswordLabel";
-            confirmPasswordLabel.Size = new Size(107, 15);
+            confirmPasswordLabel.Size = new Size(104, 15);
             confirmPasswordLabel.TabIndex = 2;
             confirmPasswordLabel.Text = "Confirm Password";
             // 
             // nicknameTextBox
             // 
-            nicknameTextBox.Location = new Point(150, 27);
+            nicknameTextBox.Location = new Point(17, 29);
             nicknameTextBox.Name = "nicknameTextBox";
             nicknameTextBox.Size = new Size(200, 23);
             nicknameTextBox.TabIndex = 3;
             // 
             // masterPasswordTextBox
             // 
-            masterPasswordTextBox.Location = new Point(150, 77);
+            masterPasswordTextBox.Location = new Point(17, 73);
             masterPasswordTextBox.Name = "masterPasswordTextBox";
             masterPasswordTextBox.Size = new Size(200, 23);
             masterPasswordTextBox.TabIndex = 4;
             // 
             // confirmPasswordTextBox
             // 
-            confirmPasswordTextBox.Location = new Point(150, 127);
+            confirmPasswordTextBox.Location = new Point(17, 115);
             confirmPasswordTextBox.Name = "confirmPasswordTextBox";
             confirmPasswordTextBox.Size = new Size(200, 23);
             confirmPasswordTextBox.TabIndex = 5;
             // 
             // saveMasterPasswordButton
             // 
-            saveMasterPasswordButton.Location = new Point(150, 177);
+            saveMasterPasswordButton.Location = new Point(17, 144);
             saveMasterPasswordButton.Name = "saveMasterPasswordButton";
             saveMasterPasswordButton.Size = new Size(200, 23);
             saveMasterPasswordButton.TabIndex = 6;
@@ -89,11 +89,10 @@
             saveMasterPasswordButton.UseVisualStyleBackColor = true;
             saveMasterPasswordButton.Click += SaveMasterPasswordButton_Click;
             // 
-            // CreateMasterPasswordForm
+            // SignupControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 200);
             Controls.Add(confirmPasswordTextBox);
             Controls.Add(masterPasswordTextBox);
             Controls.Add(nicknameTextBox);
@@ -101,8 +100,9 @@
             Controls.Add(masterPasswordLabel);
             Controls.Add(nicknameLabel);
             Controls.Add(saveMasterPasswordButton);
-            Name = "CreateMasterPasswordForm";
-            Text = "Create Master Password";
+            Location = new Point(0, 100);
+            Name = "SignupControl";
+            Size = new Size(232, 174);
             ResumeLayout(false);
             PerformLayout();
         }
