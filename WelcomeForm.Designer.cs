@@ -30,13 +30,15 @@
         {
             signUpButton = new Button();
             logInButton = new Button();
+            gatesPictureBox = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)gatesPictureBox).BeginInit();
             SuspendLayout();
             // 
             // signUpButton
             // 
-            signUpButton.Location = new Point(19, 12);
+            signUpButton.Location = new Point(0, 0);
             signUpButton.Name = "signUpButton";
-            signUpButton.Size = new Size(110, 48);
+            signUpButton.Size = new Size(130, 60);
             signUpButton.TabIndex = 0;
             signUpButton.Text = "Sign Up";
             signUpButton.UseVisualStyleBackColor = true;
@@ -44,13 +46,23 @@
             // 
             // logInButton
             // 
-            logInButton.Location = new Point(124, 12);
+            logInButton.Location = new Point(127, 0);
             logInButton.Name = "logInButton";
-            logInButton.Size = new Size(110, 48);
+            logInButton.Size = new Size(127, 60);
             logInButton.TabIndex = 1;
             logInButton.Text = "Log In";
             logInButton.UseVisualStyleBackColor = true;
             logInButton.Click += LoginButton_Click;
+            // 
+            // gatesPictureBox
+            // 
+            gatesPictureBox.Image = Properties.Resources.gates;
+            gatesPictureBox.Location = new Point(0, 56);
+            gatesPictureBox.Name = "gatesPictureBox";
+            gatesPictureBox.Size = new Size(254, 260);
+            gatesPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            gatesPictureBox.TabIndex = 2;
+            gatesPictureBox.TabStop = false;
             // 
             // WelcomeForm
             // 
@@ -58,12 +70,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(38, 69, 57);
             ClientSize = new Size(254, 317);
+            Controls.Add(gatesPictureBox);
             Controls.Add(logInButton);
             Controls.Add(signUpButton);
             FormBorderStyle = FormBorderStyle.None;
             Name = "WelcomeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Welcome";
+            ((System.ComponentModel.ISupportInitialize)gatesPictureBox).EndInit();
             ResumeLayout(false);
         }
 
@@ -71,8 +85,6 @@
 
         private Button signUpButton;
         private Button logInButton;
-
-
-
+        private PictureBox gatesPictureBox;
     }
 }

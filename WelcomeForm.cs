@@ -35,13 +35,16 @@ namespace WinFormsApp1
         private void SignupButton_Click(object sender, EventArgs e)
         {
             // Hide Login UserControl and show Signup UserControl
+            gatesPictureBox.Visible = false; // hide gate
             loginControl.Visible = false;
             signupControl.Visible = true;
+
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
             // Hide Signup UserControl and show Login UserControl
+            gatesPictureBox.Visible = false; // hide gate
             signupControl.Visible = false;
             loginControl.Visible = true;
         }
