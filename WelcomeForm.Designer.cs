@@ -36,30 +36,39 @@
             // 
             // signUpButton
             // 
+            signUpButton.BackColor = Color.FromArgb(35, 59, 50);
+            signUpButton.FlatAppearance.BorderSize = 0;
+            signUpButton.FlatStyle = FlatStyle.Flat;
+            signUpButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             signUpButton.Location = new Point(0, 0);
             signUpButton.Name = "signUpButton";
             signUpButton.Size = new Size(130, 60);
             signUpButton.TabIndex = 0;
             signUpButton.Text = "Sign Up";
-            signUpButton.UseVisualStyleBackColor = true;
+            signUpButton.UseVisualStyleBackColor = false;
             signUpButton.Click += SignupButton_Click;
             // 
             // logInButton
             // 
+            logInButton.BackColor = Color.FromArgb(35, 59, 50);
+            logInButton.FlatAppearance.BorderSize = 0;
+            logInButton.FlatStyle = FlatStyle.Flat;
+            logInButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             logInButton.Location = new Point(127, 0);
             logInButton.Name = "logInButton";
             logInButton.Size = new Size(127, 60);
             logInButton.TabIndex = 1;
             logInButton.Text = "Log In";
-            logInButton.UseVisualStyleBackColor = true;
+            logInButton.UseVisualStyleBackColor = false;
             logInButton.Click += LoginButton_Click;
             // 
             // gatesPictureBox
             // 
+            gatesPictureBox.Dock = DockStyle.Bottom;
             gatesPictureBox.Image = Properties.Resources.gates;
-            gatesPictureBox.Location = new Point(0, 56);
+            gatesPictureBox.Location = new Point(0, 66);
             gatesPictureBox.Name = "gatesPictureBox";
-            gatesPictureBox.Size = new Size(254, 260);
+            gatesPictureBox.Size = new Size(254, 251);
             gatesPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             gatesPictureBox.TabIndex = 2;
             gatesPictureBox.TabStop = false;
@@ -70,9 +79,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(38, 69, 57);
             ClientSize = new Size(254, 317);
-            Controls.Add(gatesPictureBox);
             Controls.Add(logInButton);
             Controls.Add(signUpButton);
+            Controls.Add(gatesPictureBox);
             FormBorderStyle = FormBorderStyle.None;
             Name = "WelcomeForm";
             StartPosition = FormStartPosition.CenterScreen;
