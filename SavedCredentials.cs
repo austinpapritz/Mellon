@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class SavedCredentialsForm : Form
+    public partial class SavedCredentials : Form
     {
         private List<(string? website, byte[] username, byte[] password)>? _savedCredentials;
         private int _userId;
         private byte[] _encryptionKey;
 
-        public SavedCredentialsForm(int userId, byte[] encryptionKey)
+        public SavedCredentials(int userId, byte[] encryptionKey)
         {
             InitializeComponent();
             _userId = userId;
@@ -38,7 +38,7 @@ namespace WinFormsApp1
                 if (credential.website != null)
                 {
                     websiteComboBox.Items.Add(credential.website);
-                } 
+                }
                 else
                 {
                     MessageBox.Show("Please add a website.");

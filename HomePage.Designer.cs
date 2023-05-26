@@ -34,6 +34,7 @@
             NicknameLabel = new Label();
             UserAvatar = new PictureBox();
             MainContentPanel = new Panel();
+            savedPasswordsButton = new Button();
             NavigationPanel.SuspendLayout();
             UserPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserAvatar).BeginInit();
@@ -42,6 +43,7 @@
             // NavigationPanel
             // 
             NavigationPanel.BackColor = Color.FromArgb(58, 59, 66);
+            NavigationPanel.Controls.Add(savedPasswordsButton);
             NavigationPanel.Controls.Add(newPasswordNavButton);
             NavigationPanel.Controls.Add(UserPanel);
             NavigationPanel.Dock = DockStyle.Left;
@@ -108,6 +110,24 @@
             MainContentPanel.Size = new Size(770, 577);
             MainContentPanel.TabIndex = 1;
             // 
+            // savedPasswordsButton
+            // 
+            savedPasswordsButton.Cursor = Cursors.Hand;
+            savedPasswordsButton.Dock = DockStyle.Top;
+            savedPasswordsButton.FlatAppearance.BorderSize = 0;
+            savedPasswordsButton.FlatStyle = FlatStyle.Flat;
+            savedPasswordsButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            savedPasswordsButton.ForeColor = Color.FromArgb(128, 161, 193);
+            savedPasswordsButton.Image = Properties.Resources.list;
+            savedPasswordsButton.Location = new Point(0, 162);
+            savedPasswordsButton.Name = "savedPasswordsButton";
+            savedPasswordsButton.Size = new Size(186, 42);
+            savedPasswordsButton.TabIndex = 1;
+            savedPasswordsButton.Text = "Saved Passwords";
+            savedPasswordsButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+            savedPasswordsButton.UseVisualStyleBackColor = true;
+            savedPasswordsButton.Click += savedPasswordsButton_Click;
+            // 
             // HomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -135,5 +155,6 @@
         private Label NicknameLabel;
         private PictureBox UserAvatar;
         private Button newPasswordNavButton;
+        private Button savedPasswordsButton;
     }
 }

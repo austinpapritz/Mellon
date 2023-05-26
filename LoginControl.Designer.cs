@@ -74,6 +74,7 @@
             // 
             // masterPasswordTextBox
             // 
+            masterPasswordTextBox.AcceptsReturn = true;
             masterPasswordTextBox.Location = new Point(25, 84);
             masterPasswordTextBox.Name = "masterPasswordTextBox";
             masterPasswordTextBox.Size = new Size(200, 23);

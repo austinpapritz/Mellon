@@ -2,7 +2,7 @@
 
 namespace WinFormsApp1
 {
-    partial class SavedCredentialsForm
+    partial class SavedCredentials
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -20,61 +20,53 @@ namespace WinFormsApp1
             websiteComboBox = new ComboBox();
             usernameLabel = new Label();
             passwordLabel = new Label();
-            newPasswordButton = new Button();
             SuspendLayout();
             // 
             // websiteComboBox
             // 
+            websiteComboBox.Dock = DockStyle.Top;
             websiteComboBox.FormattingEnabled = true;
-            websiteComboBox.Location = new Point(188, 57);
-            websiteComboBox.Margin = new Padding(4, 3, 4, 3);
+            websiteComboBox.Location = new Point(0, 0);
+            websiteComboBox.Margin = new Padding(5, 3, 5, 3);
             websiteComboBox.Name = "websiteComboBox";
-            websiteComboBox.Size = new Size(140, 23);
+            websiteComboBox.Size = new Size(378, 25);
             websiteComboBox.TabIndex = 0;
             websiteComboBox.SelectedIndexChanged += websiteComboBox_SelectedIndexChanged;
             // 
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(184, 96);
-            usernameLabel.Margin = new Padding(4, 0, 4, 0);
+            usernameLabel.Location = new Point(26, 107);
+            usernameLabel.Margin = new Padding(5, 0, 5, 0);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(63, 15);
+            usernameLabel.Size = new Size(73, 17);
             usernameLabel.TabIndex = 1;
             usernameLabel.Text = "Username:";
             // 
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(184, 125);
-            passwordLabel.Margin = new Padding(4, 0, 4, 0);
+            passwordLabel.Location = new Point(26, 172);
+            passwordLabel.Margin = new Padding(5, 0, 5, 0);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(60, 15);
+            passwordLabel.Size = new Size(70, 17);
             passwordLabel.TabIndex = 2;
             passwordLabel.Text = "Password:";
             // 
-            // newPasswordButton
+            // SavedCredentials
             // 
-            newPasswordButton.Location = new Point(17, 14);
-            newPasswordButton.Name = "newPasswordButton";
-            newPasswordButton.Size = new Size(93, 23);
-            newPasswordButton.TabIndex = 3;
-            newPasswordButton.Text = "New Password";
-            newPasswordButton.UseVisualStyleBackColor = true;
-            newPasswordButton.Click += newPasswordButton_Click;
-            // 
-            // SavedCredentialsForm
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(331, 301);
-            Controls.Add(newPasswordButton);
+            BackColor = Color.FromArgb(38, 69, 57);
+            ClientSize = new Size(378, 341);
             Controls.Add(passwordLabel);
             Controls.Add(usernameLabel);
             Controls.Add(websiteComboBox);
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "SavedCredentialsForm";
-            Text = "SavedCredentialsForm";
+            Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(5, 3, 5, 3);
+            Name = "SavedCredentials";
+            Text = "Saved Credentials";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -82,6 +74,5 @@ namespace WinFormsApp1
         private System.Windows.Forms.ComboBox websiteComboBox;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
-        private Button newPasswordButton;
     }
 }
