@@ -36,13 +36,13 @@
             // 
             // signUpButton
             // 
-            signUpButton.BackColor = Color.FromArgb(35, 59, 50);
-            signUpButton.FlatAppearance.BorderSize = 0;
+            signUpButton.BackColor = Color.FromArgb(58, 59, 66);
             signUpButton.FlatStyle = FlatStyle.Flat;
-            signUpButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            signUpButton.Font = new Font("Ringbearer", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            signUpButton.ForeColor = Color.FromArgb(242, 197, 124);
             signUpButton.Location = new Point(0, 0);
             signUpButton.Name = "signUpButton";
-            signUpButton.Size = new Size(130, 60);
+            signUpButton.Size = new Size(127, 60);
             signUpButton.TabIndex = 0;
             signUpButton.Text = "Sign Up";
             signUpButton.UseVisualStyleBackColor = false;
@@ -50,10 +50,10 @@
             // 
             // logInButton
             // 
-            logInButton.BackColor = Color.FromArgb(35, 59, 50);
-            logInButton.FlatAppearance.BorderSize = 0;
+            logInButton.BackColor = Color.FromArgb(58, 59, 66);
             logInButton.FlatStyle = FlatStyle.Flat;
-            logInButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            logInButton.Font = new Font("Ringbearer", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            logInButton.ForeColor = Color.FromArgb(242, 197, 124);
             logInButton.Location = new Point(127, 0);
             logInButton.Name = "logInButton";
             logInButton.Size = new Size(127, 60);

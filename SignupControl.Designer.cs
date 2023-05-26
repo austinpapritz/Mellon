@@ -42,69 +42,83 @@
             // nicknameLabel
             // 
             nicknameLabel.AutoSize = true;
-            nicknameLabel.Location = new Point(92, 12);
+            nicknameLabel.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            nicknameLabel.ForeColor = Color.FromArgb(242, 197, 124);
+            nicknameLabel.Location = new Point(27, 12);
             nicknameLabel.Name = "nicknameLabel";
-            nicknameLabel.Size = new Size(61, 15);
+            nicknameLabel.Size = new Size(81, 17);
             nicknameLabel.TabIndex = 0;
             nicknameLabel.Text = "Nickname";
             // 
             // masterPasswordLabel
             // 
             masterPasswordLabel.AutoSize = true;
-            masterPasswordLabel.Location = new Point(76, 56);
+            masterPasswordLabel.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            masterPasswordLabel.ForeColor = Color.FromArgb(242, 197, 124);
+            masterPasswordLabel.Location = new Point(27, 72);
             masterPasswordLabel.Name = "masterPasswordLabel";
-            masterPasswordLabel.Size = new Size(96, 15);
+            masterPasswordLabel.Size = new Size(138, 17);
             masterPasswordLabel.TabIndex = 1;
             masterPasswordLabel.Text = "Master Password";
             // 
             // confirmPasswordLabel
             // 
             confirmPasswordLabel.AutoSize = true;
-            confirmPasswordLabel.Location = new Point(72, 98);
+            confirmPasswordLabel.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            confirmPasswordLabel.ForeColor = Color.FromArgb(242, 197, 124);
+            confirmPasswordLabel.Location = new Point(27, 132);
             confirmPasswordLabel.Name = "confirmPasswordLabel";
-            confirmPasswordLabel.Size = new Size(104, 15);
+            confirmPasswordLabel.Size = new Size(150, 17);
             confirmPasswordLabel.TabIndex = 2;
             confirmPasswordLabel.Text = "Confirm Password";
             // 
             // nicknameTextBox
             // 
-            nicknameTextBox.Location = new Point(25, 29);
+            nicknameTextBox.BorderStyle = BorderStyle.None;
+            nicknameTextBox.Location = new Point(27, 30);
             nicknameTextBox.Name = "nicknameTextBox";
-            nicknameTextBox.Size = new Size(200, 23);
+            nicknameTextBox.Size = new Size(200, 16);
             nicknameTextBox.TabIndex = 3;
             // 
             // masterPasswordTextBox
             // 
-            masterPasswordTextBox.Location = new Point(25, 73);
+            masterPasswordTextBox.BorderStyle = BorderStyle.None;
+            masterPasswordTextBox.Location = new Point(27, 90);
             masterPasswordTextBox.Name = "masterPasswordTextBox";
-            masterPasswordTextBox.Size = new Size(200, 23);
+            masterPasswordTextBox.Size = new Size(200, 16);
             masterPasswordTextBox.TabIndex = 4;
             masterPasswordTextBox.UseSystemPasswordChar = true;
             masterPasswordTextBox.TextChanged += masterPasswordTextBox_TextChanged;
             // 
             // confirmPasswordTextBox
             // 
-            confirmPasswordTextBox.Location = new Point(25, 115);
+            confirmPasswordTextBox.BorderStyle = BorderStyle.None;
+            confirmPasswordTextBox.Location = new Point(27, 150);
             confirmPasswordTextBox.Name = "confirmPasswordTextBox";
-            confirmPasswordTextBox.Size = new Size(200, 23);
+            confirmPasswordTextBox.Size = new Size(200, 16);
             confirmPasswordTextBox.TabIndex = 5;
             confirmPasswordTextBox.UseSystemPasswordChar = true;
             confirmPasswordTextBox.TextChanged += confirmPasswordTextBox_TextChanged;
             // 
             // saveMasterPasswordButton
             // 
-            saveMasterPasswordButton.Location = new Point(25, 144);
+            saveMasterPasswordButton.BackColor = Color.FromArgb(58, 59, 66);
+            saveMasterPasswordButton.Dock = DockStyle.Bottom;
+            saveMasterPasswordButton.FlatStyle = FlatStyle.Flat;
+            saveMasterPasswordButton.Font = new Font("Ringbearer", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            saveMasterPasswordButton.ForeColor = Color.FromArgb(242, 197, 124);
+            saveMasterPasswordButton.Location = new Point(0, 182);
             saveMasterPasswordButton.Name = "saveMasterPasswordButton";
-            saveMasterPasswordButton.Size = new Size(200, 23);
+            saveMasterPasswordButton.Size = new Size(254, 69);
             saveMasterPasswordButton.TabIndex = 6;
-            saveMasterPasswordButton.Text = "Sign up";
-            saveMasterPasswordButton.UseVisualStyleBackColor = true;
+            saveMasterPasswordButton.Text = "Submit";
+            saveMasterPasswordButton.UseVisualStyleBackColor = false;
             saveMasterPasswordButton.Click += SaveMasterPasswordButton_Click;
             // 
             // hidePasswordPictureBox
             // 
             hidePasswordPictureBox.Image = Properties.Resources.eye_off;
-            hidePasswordPictureBox.Location = new Point(231, 118);
+            hidePasswordPictureBox.Location = new Point(231, 150);
             hidePasswordPictureBox.Name = "hidePasswordPictureBox";
             hidePasswordPictureBox.Size = new Size(20, 18);
             hidePasswordPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -115,7 +129,7 @@
             // showPasswordPictureBox
             // 
             showPasswordPictureBox.Image = Properties.Resources.eye;
-            showPasswordPictureBox.Location = new Point(231, 118);
+            showPasswordPictureBox.Location = new Point(231, 150);
             showPasswordPictureBox.Name = "showPasswordPictureBox";
             showPasswordPictureBox.Size = new Size(20, 18);
             showPasswordPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -127,7 +141,7 @@
             // passwordMatchPictureBox
             // 
             passwordMatchPictureBox.Image = Properties.Resources.check_square;
-            passwordMatchPictureBox.Location = new Point(3, 117);
+            passwordMatchPictureBox.Location = new Point(5, 149);
             passwordMatchPictureBox.Name = "passwordMatchPictureBox";
             passwordMatchPictureBox.Size = new Size(16, 19);
             passwordMatchPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -138,7 +152,7 @@
             // passwordMisMatchPictureBox
             // 
             passwordMisMatchPictureBox.Image = Properties.Resources.x_square;
-            passwordMisMatchPictureBox.Location = new Point(3, 115);
+            passwordMisMatchPictureBox.Location = new Point(5, 149);
             passwordMisMatchPictureBox.Name = "passwordMisMatchPictureBox";
             passwordMisMatchPictureBox.Size = new Size(16, 19);
             passwordMisMatchPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -150,6 +164,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(38, 69, 57);
             Controls.Add(passwordMisMatchPictureBox);
             Controls.Add(passwordMatchPictureBox);
             Controls.Add(showPasswordPictureBox);
@@ -161,9 +176,10 @@
             Controls.Add(masterPasswordLabel);
             Controls.Add(nicknameLabel);
             Controls.Add(saveMasterPasswordButton);
-            Location = new Point(0, 100);
+            Location = new Point(0, 60);
             Name = "SignupControl";
-            Size = new Size(254, 174);
+            Size = new Size(254, 251);
+            Load += SignupControl_Load;
             ((System.ComponentModel.ISupportInitialize)hidePasswordPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)showPasswordPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)passwordMatchPictureBox).EndInit();

@@ -127,6 +127,9 @@ VALUES (@nickname, @salt, @hashedMasterPassword);";
             }
         }
 
+        private void SignupControl_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
