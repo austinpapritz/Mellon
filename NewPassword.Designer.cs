@@ -54,29 +54,37 @@
             // website
             // 
             website.AutoSize = true;
-            website.Location = new Point(351, 120);
+            website.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            website.ForeColor = Color.FromArgb(242, 197, 124);
+            website.Location = new Point(239, 121);
             website.Name = "website";
-            website.Size = new Size(55, 17);
+            website.Size = new Size(62, 17);
             website.TabIndex = 3;
             website.Text = "website";
             // 
             // username
             // 
             username.AutoSize = true;
-            username.Location = new Point(347, 192);
+            username.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            username.ForeColor = Color.FromArgb(242, 197, 124);
+            username.Location = new Point(239, 192);
             username.Name = "username";
-            username.Size = new Size(68, 17);
+            username.Size = new Size(79, 17);
             username.TabIndex = 4;
             username.Text = "username";
             // 
             // btnSavePW
             // 
-            btnSavePW.Location = new Point(314, 385);
+            btnSavePW.BackColor = Color.FromArgb(58, 59, 66);
+            btnSavePW.Dock = DockStyle.Bottom;
+            btnSavePW.FlatStyle = FlatStyle.Flat;
+            btnSavePW.ForeColor = Color.FromArgb(242, 197, 124);
+            btnSavePW.Location = new Point(0, 401);
             btnSavePW.Name = "btnSavePW";
-            btnSavePW.Size = new Size(137, 66);
+            btnSavePW.Size = new Size(766, 64);
             btnSavePW.TabIndex = 6;
             btnSavePW.Text = "Save";
-            btnSavePW.UseVisualStyleBackColor = true;
+            btnSavePW.UseVisualStyleBackColor = false;
             btnSavePW.Click += btnSave_Click;
             // 
             // lblGeneratePW
@@ -89,12 +97,16 @@
             // 
             // btnGeneratedPW
             // 
-            btnGeneratedPW.Location = new Point(306, 303);
+            btnGeneratedPW.BackColor = Color.FromArgb(58, 59, 66);
+            btnGeneratedPW.FlatStyle = FlatStyle.Flat;
+            btnGeneratedPW.Font = new Font("Ringbearer", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnGeneratedPW.ForeColor = Color.FromArgb(242, 197, 124);
+            btnGeneratedPW.Location = new Point(229, 303);
             btnGeneratedPW.Name = "btnGeneratedPW";
-            btnGeneratedPW.Size = new Size(145, 26);
+            btnGeneratedPW.Size = new Size(311, 42);
             btnGeneratedPW.TabIndex = 7;
             btnGeneratedPW.Text = "Generate Password";
-            btnGeneratedPW.UseVisualStyleBackColor = true;
+            btnGeneratedPW.UseVisualStyleBackColor = false;
             btnGeneratedPW.Click += btnGeneratePW_Click;
             // 
             // NewPassword

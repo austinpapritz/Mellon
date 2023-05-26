@@ -82,6 +82,25 @@ namespace WinFormsApp1
             }
         }
 
+        private void usernameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

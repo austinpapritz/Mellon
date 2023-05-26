@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             NavigationPanel = new Panel();
+            savedPasswordsButton = new Button();
             newPasswordNavButton = new Button();
             UserPanel = new Panel();
             NicknameLabel = new Label();
             UserAvatar = new PictureBox();
             MainContentPanel = new Panel();
-            savedPasswordsButton = new Button();
             NavigationPanel.SuspendLayout();
             UserPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserAvatar).BeginInit();
@@ -52,13 +52,31 @@
             NavigationPanel.Size = new Size(186, 577);
             NavigationPanel.TabIndex = 0;
             // 
+            // savedPasswordsButton
+            // 
+            savedPasswordsButton.Cursor = Cursors.Hand;
+            savedPasswordsButton.Dock = DockStyle.Top;
+            savedPasswordsButton.FlatAppearance.BorderSize = 0;
+            savedPasswordsButton.FlatStyle = FlatStyle.Flat;
+            savedPasswordsButton.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            savedPasswordsButton.ForeColor = Color.FromArgb(128, 161, 193);
+            savedPasswordsButton.Image = Properties.Resources.list;
+            savedPasswordsButton.Location = new Point(0, 162);
+            savedPasswordsButton.Name = "savedPasswordsButton";
+            savedPasswordsButton.Size = new Size(186, 42);
+            savedPasswordsButton.TabIndex = 1;
+            savedPasswordsButton.Text = "Saved Passwords";
+            savedPasswordsButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+            savedPasswordsButton.UseVisualStyleBackColor = true;
+            savedPasswordsButton.Click += savedPasswordsButton_Click;
+            // 
             // newPasswordNavButton
             // 
             newPasswordNavButton.Cursor = Cursors.Hand;
             newPasswordNavButton.Dock = DockStyle.Top;
             newPasswordNavButton.FlatAppearance.BorderSize = 0;
             newPasswordNavButton.FlatStyle = FlatStyle.Flat;
-            newPasswordNavButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            newPasswordNavButton.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             newPasswordNavButton.ForeColor = Color.FromArgb(128, 161, 193);
             newPasswordNavButton.Image = Properties.Resources.plus_square;
             newPasswordNavButton.Location = new Point(0, 120);
@@ -84,11 +102,11 @@
             // 
             NicknameLabel.AutoSize = true;
             NicknameLabel.BackColor = Color.FromArgb(58, 59, 66);
-            NicknameLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            NicknameLabel.Font = new Font("Ringbearer", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             NicknameLabel.ForeColor = Color.FromArgb(242, 197, 124);
             NicknameLabel.Location = new Point(48, 92);
             NicknameLabel.Name = "NicknameLabel";
-            NicknameLabel.Size = new Size(76, 16);
+            NicknameLabel.Size = new Size(81, 17);
             NicknameLabel.TabIndex = 1;
             NicknameLabel.Text = "Nickname";
             NicknameLabel.Click += label1_Click;
@@ -109,24 +127,6 @@
             MainContentPanel.Name = "MainContentPanel";
             MainContentPanel.Size = new Size(770, 577);
             MainContentPanel.TabIndex = 1;
-            // 
-            // savedPasswordsButton
-            // 
-            savedPasswordsButton.Cursor = Cursors.Hand;
-            savedPasswordsButton.Dock = DockStyle.Top;
-            savedPasswordsButton.FlatAppearance.BorderSize = 0;
-            savedPasswordsButton.FlatStyle = FlatStyle.Flat;
-            savedPasswordsButton.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            savedPasswordsButton.ForeColor = Color.FromArgb(128, 161, 193);
-            savedPasswordsButton.Image = Properties.Resources.list;
-            savedPasswordsButton.Location = new Point(0, 162);
-            savedPasswordsButton.Name = "savedPasswordsButton";
-            savedPasswordsButton.Size = new Size(186, 42);
-            savedPasswordsButton.TabIndex = 1;
-            savedPasswordsButton.Text = "Saved Passwords";
-            savedPasswordsButton.TextImageRelation = TextImageRelation.TextBeforeImage;
-            savedPasswordsButton.UseVisualStyleBackColor = true;
-            savedPasswordsButton.Click += savedPasswordsButton_Click;
             // 
             // HomePage
             // 

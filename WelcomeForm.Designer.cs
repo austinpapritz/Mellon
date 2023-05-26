@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             signUpButton = new Button();
-            logInButton = new Button();
             gatesPictureBox = new PictureBox();
+            logInButton = new Button();
             ((System.ComponentModel.ISupportInitialize)gatesPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -48,6 +48,17 @@
             signUpButton.UseVisualStyleBackColor = false;
             signUpButton.Click += SignupButton_Click;
             // 
+            // gatesPictureBox
+            // 
+            gatesPictureBox.Dock = DockStyle.Bottom;
+            gatesPictureBox.Image = Properties.Resources.gates;
+            gatesPictureBox.Location = new Point(0, 66);
+            gatesPictureBox.Name = "gatesPictureBox";
+            gatesPictureBox.Size = new Size(254, 251);
+            gatesPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            gatesPictureBox.TabIndex = 2;
+            gatesPictureBox.TabStop = false;
+            // 
             // logInButton
             // 
             logInButton.BackColor = Color.FromArgb(58, 59, 66);
@@ -61,17 +72,6 @@
             logInButton.Text = "Log In";
             logInButton.UseVisualStyleBackColor = false;
             logInButton.Click += LoginButton_Click;
-            // 
-            // gatesPictureBox
-            // 
-            gatesPictureBox.Dock = DockStyle.Bottom;
-            gatesPictureBox.Image = Properties.Resources.gates;
-            gatesPictureBox.Location = new Point(0, 66);
-            gatesPictureBox.Name = "gatesPictureBox";
-            gatesPictureBox.Size = new Size(254, 251);
-            gatesPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            gatesPictureBox.TabIndex = 2;
-            gatesPictureBox.TabStop = false;
             // 
             // WelcomeForm
             // 
@@ -93,7 +93,7 @@
         #endregion
 
         private Button signUpButton;
-        private Button logInButton;
         private PictureBox gatesPictureBox;
+        private Button logInButton;
     }
 }
